@@ -1,213 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css"/>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <link href="/css/site.css" rel="stylesheet" />
-    <title>Youth Event App</title>
+    <link href="./css/site.css" rel="stylesheet"/>
+    <title>Event App</title>
 </head>
+
 <body>
 
-    <!-- Menu -->
-    <div class="navbar bg-base-100 shadow px-4">
-        <!-- LEFT SIDE -->
-        <div class="navbar-start">
-            <!-- HAMBURGER MENU -->
-            <div class="dropdown">
-                <label tabindex="0" class="btn btn-ghost lg:hidden">
-                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
+<!-- Hero Section -->
+<div class="hero min-h-48 bg-base-200">
+    <div class="hero-content text-center">
+        <div class="max-w-md mb-4">
+            <h1 class="text-5xl font-bold">Welcome to Event App</h1>
+            <p class="py-6">
+                Discover, create, and manage amazing events. Join thousands of users who trust our platform
+                for seamless event planning and coordination.
+            </p>
+            <button class="btn btn-primary btn-lg rounded-full min-w-[300px]">Get Started</button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mx-auto px-4 py-10">
+
+    <h2 class="text-4xl font-bold text-center mb-6">Youth Events</h2>
+
+    <div class="carousel rounded-xl h-[300px] md:h-[450px]">
+
+        <!-- Slide 1 -->
+        <div id="slide1" class="carousel-item relative w-full">
+            <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+                 class="w-full h-full object-cover"/>
+
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide3" class="btn btn-circle">❮</a>
+                <a href="#slide2" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div id="slide2" class="carousel-item relative w-full">
+            <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde7b"
+                 class="w-full h-full object-cover"/>
+
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide1" class="btn btn-circle">❮</a>
+                <a href="#slide3" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div id="slide3" class="carousel-item relative w-full">
+            <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659"
+                 class="w-full h-full object-cover"/>
+
+            <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                <a href="#slide2" class="btn btn-circle">❮</a>
+                <a href="#slide1" class="btn btn-circle">❯</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Events Showcase Section -->
+<section class="container mx-auto px-4 py-12">
+    <h2 class="text-4xl font-bold text-center mb-10">Featured Events</h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Event Card 1 -->
+        <div class="card bg-base-100 shadow border border-gray-200">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde7b" alt="Concert"/>
+            </figure>
+            <div class="card-body">
+                <h3 class="card-title">Music Concert</h3>
+                <p>Experience a night filled with live performances and great vibes.</p>
+                <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
+            </div>
+        </div>
+
+        <!-- Event Card 2 -->
+        <div class="card bg-base-100 shadow border border-gray-200">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Tech Conference"/>
+            </figure>
+            <div class="card-body">
+                <h3 class="card-title">Tech Conference</h3>
+                <p>Join industry leaders to explore the future of innovation.</p>
+                <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
+            </div>
+        </div>
+
+        <!-- Event Card 3 -->
+        <div class="card bg-base-100 shadow border border-gray-200">
+            <figure>
+                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659" alt="Art Exhibition"/>
+            </figure>
+            <div class="card-body">
+                <h3 class="card-title">Art Exhibition</h3>
+                <p>Explore stunning artwork from talented creators.</p>
+                <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About / Description Section -->
+<section class="container mx-auto px-4 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        
+        <!-- Text -->
+        <article>
+            <h2 class="text-4xl font-bold mb-4">About Event App</h2>
+            <p class="text-lg mb-4">
+                Event App is your go-to platform for discovering the best events happening around you. 
+                Whether you're planning to attend, host, or manage an event — we’ve got your back.
+            </p>
+            <p class="text-base text-base-content/70">
+                From concerts to conferences, exhibitions to community meetups, you can explore, track, 
+                and organize everything effortlessly.
+            </p>
+            <div class="mt-6 space-x-4">
+                <a class="btn btn-primary" href="#">Explore Events</a>
+                <a class="btn btn-outline" href="#">Create Event</a>
+            </div>
+        </article>
+
+        <!-- Image -->
+        <figure class="w-full">
+            <img class="rounded-xl shadow-lg" 
+                 src="https://images.unsplash.com/photo-1526948128573-703ee1aeb6fa" 
+                 alt="About Image">
+        </figure>
+
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="container mx-auto px-4 py-16">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold mb-4">Our Impact</h2>
+        <p class="text-lg text-base-content/70">
+            Numbers that show how far our youth community has grown.
+        </p>
+    </div>
+
+        <div class="stats shadow-lg rounded-xl w-full mb12:w-3/4 mx-auto text-center">
+
+        
+        <div class="stat">
+            <div class="stat-title text-lg">Participants</div>
+            <div class="stat-value text-primary">155,200+</div>
+            <div class="stat-desc">Youth from all over Pakistan</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-title text-lg">Partnerships</div>
+            <div class="stat-value text-primary">525+</div>
+            <div class="stat-desc">Organizations & sponsors</div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-title text-lg">Events Hosted</div>
+            <div class="stat-value text-primary">129+</div>
+            <div class="stat-desc">Workshops, seminars, meetups</div>
+        </div>
+
+    </div>
+</section>
+
+<section class="py-20 bg-blue-50 relative overflow-hidden">
+  <!-- Dotted background -->
+  <div class="absolute inset-0 bg-[repeating-radial-gradient(circle,_rgba(0,0,0,0.05)_0,_rgba(0,0,0,0.05)_1px,_transparent_1px,_transparent_20px)] z-0"></div>
+
+  <div class="max-w-6xl mx-auto text-center relative z-10">
+    <h2 class="text-4xl font-bold text-black mb-12">Why Choose Youth Event App?</h2>
+
+    <!-- Parent container for circles -->
+    <div class="relative w-full max-w-xl mx-auto h-[520px]">
+
+      <!-- Center Circle -->
+      <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-white text-gray-800 rounded-full 
+                  flex items-center justify-center text-lg font-semibold transform -translate-x-1/2 -translate-y-1/2 shadow-lg z-10">
+        Youth Event App
+      </div>
+
+      <!-- Top Point -->
+      <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+        <div class="bg-purple-400 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M16 2H8l-2 6v14h12V8l-2-6zM8 20v-2h8v2H8zm0-4v-2h8v2H8z"/>
+          </svg>
+          <span class="text-white font-semibold text-sm">Easy Event Booking</span>
+        </div>
+      </div>
+
+      <!-- Right Top Point -->
+      <div class="absolute top-1/4 right-0 transform -translate-y-1/2">
+        <div class="bg-green-300 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <span class="text-white text-xl">👥</span>
+          <span class="text-white font-semibold text-sm">Connect with Youth</span>
+        </div>
+      </div>
+
+      <!-- Right Bottom Point -->
+      <div class="absolute bottom-1/4 right-0 transform translate-y-1/2">
+        <div class="bg-yellow-400 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <span class="text-white text-xl">⚡</span>
+          <span class="text-white font-semibold text-sm">Fast & Responsive</span>
+        </div>
+      </div>
+
+      <!-- Left Top Point -->
+      <div class="absolute top-1/4 left-0 transform -translate-y-1/2">
+        <div class="bg-blue-500 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <span class="text-white text-xl">⭐</span>
+          <span class="text-white font-semibold text-sm">Exclusive Events</span>
+        </div>
+      </div>
+
+      <!-- Left Bottom Point -->
+      <div class="absolute bottom-1/4 left-0 transform translate-y-1/2">
+        <div class="bg-pink-400 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <svg class="w-6 h-6 text-black-600" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2L3 6v6c0 5.25 3.75 10.74 9 12 5.25-1.26 9-6.75 9-12V6l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 7z"/>
+          </svg>
+          <span class="text-white font-semibold text-sm">Verified Organizers</span>
+        </div>
+      </div>
+
+      <!-- Bottom Center Point -->
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+        <div class="bg-indigo-400 px-4 py-2 rounded-full shadow-lg flex items-center space-x-2">
+          <svg class="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 22a2 2 0 0 0 2-2H10a2 2 0 0 0 2 2zm6-6V9a6 6 0 1 0-12 0v7l-2 2v1h16v-1l-2-2z"/>
+          </svg>
+          <span class="text-white font-semibold text-sm">Smart Reminder</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Contact Us Section -->
+<section class="container mx-auto px-4 py-12">
+
+    <!-- Heading inside section -->
+    <div class="text-center mb-10">
+        <h1 class="text-4xl font-bold mb-2">Contact Us</h1>
+        <p class="text-base-content/70">We’d love to hear from you! Reach out to us anytime.</p>
+    </div>
+
+    <!-- Form + Info -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+        <!-- Contact Form -->
+        <form class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+            <h3 class="text-2xl font-semibold mb-4">Send Us a Message</h3>
+
+            <div>
+                <label class="label">
+                    <span class="label-text">Name</span>
                 </label>
-
-                <!-- MOBILE MENU -->
-                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 loginSubMenu">
-
-                    <li><a>Home</a></li>
-                    <li><a>Events</a></li>
-                    <li><a>Contact</a></li>
-                    <li><a>Preferences</a></li>
-
-                    <!-- MOBILE LOGIN DROPDOWN -->
-                    <li onclick="userLoginToggle()">
-                        <div class="dropdown dropdown-end w-full">
-                            <label tabindex="0" class="cursor-pointer flex items-center gap-1 px-2 py-2">
-                                <span class="loginMenuText">Login</span>
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                                </svg>
-                            </label>
-
-                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                                <li><a onclick="userLoginToggle()">Events</a></li>
-                                <li><a onclick="">Logout</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                </ul>
+                <input type="text" placeholder="Your Name" class="input input-bordered w-full" required/>
             </div>
 
-            <!-- BRAND -->
-            <a class="btn btn-ghost text-xl">Youth Event App</a>
-        </div>
+            <div>
+                <label class="label">
+                    <span class="label-text">Email</span>
+                </label>
+                <input type="email" placeholder="Your Email" class="input input-bordered w-full" required/>
+            </div>
 
-        <!-- RIGHT SIDE (DESKTOP MENU) -->
-        <div class="navbar-end hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
-                <li><a>Events</a></li>
-                <li><a>Contact</a></li>
-                <li><a>Preferences</a></li>
+            <div>
+                <label class="label">
+                    <span class="label-text">Message</span>
+                </label>
+                <textarea placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
+            </div>
 
-                <!-- DESKTOP LOGIN MENU -->
-                <li class="relative" onclick="userLoginToggle()">
-                    <div class="dropdown dropdown-end">
-                        <label tabindex="0" class="cursor-pointer flex items-center gap-1 px-4">
-                            <span class="loginMenuText">Login</span>
-                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
-                        </label>
+            <button type="submit" class="btn btn-primary w-full">Send Message</button>
+        </form>
 
-                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                            <li><a onclick="userLoginToggle()">Events</a></li>
-                            <li><a onclick="contactSubmissionList()">Contact Submissions List</a></li>
-                            <li><a onclick="">Logout</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+        <!-- Contact Info + Map -->
+        <div class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+            <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+            <p><strong>Address:</strong>Nottingham Trent University – Clifton Campus
+                        Clifton Lane, Nottingham
+                        NG11 8NS
+                        United Kingdom           </p>
+            <p><strong>Email:</strong> Musababuflejai2080@gmail.com</p>
+            <p><strong>Phone:</strong> 07908718129</p>
+
+            <h4 class="text-xl font-semibold mt-6">Follow Us: </h4>
+            <div class="flex space-x-4 mt-2">
+                <a href="https://www.facebook.com/@NottinghamTrentUniversity/" class="btn btn-outline btn-sm">Facebook</a>
+                <a href="https://x.com/UniofNottingham" class="btn btn-outline btn-sm">Twitter</a>
+                <a href="https://www.instagram.com/popular/nottingham-trent-university-clifton-campus/" class="btn btn-outline btn-sm">Instagram</a>
+            </div>
+
+            <!-- Google Map -->
+           <div class="w-full h-80">
+        <iframe 
+        class="w-full h-full rounded-xl shadow"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2437.290747213508!2d-1.1902618842144753!3d52.911706179893084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c3c9b5cb0b2d%3A0xbd8d4bcee66216c0!2sNottingham%20Trent%20University%20Clifton%20Campus!5e0!3m2!1sen!2suk!4v1700000000000"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
         </div>
     </div>
+</section>
 
-    <!-- Hero Section -->
-    <div class="hero min-h-48 bg-base-200 pt-100">
-        <div class="hero-content text-center">
-            <div class="max-w-md mb-4">
-                <h1 class="text-5xl font-bold">Welcome to Youth Event App</h1>
-                <p class="py-6">
-                    Discover, create, and manage amazing events. Join thousands of users who trust our platform
-                    for seamless event planning and coordination.
-                </p>
-                <button class="btn btn-primary btn-lg rounded-full min-w-[300px]">Get Started</button>
-                <input type="text" name="contact_FullName" id="contact_FullName" placeholder="contact_FullName" />
-                <input type="text" name="contact_Email" id="contact_Email" placeholder="contact_Email" />
-                <input type="text" name="contact_Content" id="contact_Content" placeholder="contact_Content" />
-                <input type="text" name="contact_Phone" id="contact_Phone" placeholder="contact_Phone" />
-            </div>
-        </div>
-    </div>
 
-    <!-- Info Section -->
-    <section class="container mx-auto px-4 py-8">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl font-bold mb-4">Why Choose Event App?</h2>
-            <p class="text-lg text-base-content/70">Everything you need to manage events efficiently</p>
-        </div>
+<!-- FAQs Section -->
+<section class="relative bg-gray-200 overflow-hidden py-12">
+  <!-- Full cover subtle square overlay -->
+  <div class="absolute inset-0 z-0"
+       style="background-image: 
+              repeating-linear-gradient(0deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 20px),
+              repeating-linear-gradient(90deg, rgba(0,0,0,0.03) 0 1px, transparent 1px 20px);">
+  </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="card bg-base-100 border border-gray-200 shadow ">
-                <div class="card-body items-center text-center">
-                    <h3 class="card-title">Easy to Use</h3>
-                    <p>Intuitive interface designed for everyone</p>
-                </div>
-            </div>
+  <!-- Section content -->
+  <div class="relative z-10 container mx-auto px-4">
+    <h2 class="text-4xl font-bold text-center mb-10">Frequently Asked Questions</h2>
 
-            <div class="card bg-base-100 border border-gray-200 shadow ">
-                <div class="card-body items-center text-center">
-                    <h3 class="card-title">Powerful Features</h3>
-                    <p>All the tools you need in one place</p>
-                </div>
-            </div>
+    <div class="space-y-4 max-w-3xl mx-auto">
 
-            <div class="card bg-base-100 border border-gray-200 shadow ">
-                <div class="card-body items-center text-center">
-                    <h3 class="card-title">24/7 Support</h3>
-                    <p>We're here to help whenever you need us</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- FAQ 1 -->
+        <details class="group border border-gray-200 rounded-xl p-4 bg-base-100 shadow cursor-pointer">
+            <summary class="font-semibold text-lg list-none group-open:text-primary">
+                How can I register for a youth event?
+            </summary>
+            <p class="mt-2 text-base-content/70">
+                You can register directly on the event page by clicking the "Register" button and filling out the form with your details.
+            </p>
+        </details>
 
-    <!-- Contact Submission List Section -->
-    <div class="p-4 space-y-4">
+        <!-- FAQ 2 -->
+        <details class="group border border-gray-200 rounded-xl p-4 bg-base-100 shadow cursor-pointer">
+            <summary class="font-semibold text-lg list-none group-open:text-primary">
+                Are youth events free or paid?
+            </summary>
+            <p class="mt-2 text-base-content/70">
+                Some events are free while others may have a nominal fee. Check the event details for pricing information.
+            </p>
+        </details>
 
-        <!-- Search -->
-        <div class="flex justify-between items-center">
-            <h3><strong>Contact Submission List</strong></h3>
-            <input id="ContactSubmissionListSearchBox" type="text" placeholder="Search Contact Submission..." class="input input-bordered w-full max-w-xs" />
-        </div>
+        <!-- FAQ 3 -->
+        <details class="group border border-gray-200 rounded-xl p-4 bg-base-100 shadow cursor-pointer">
+            <summary class="font-semibold text-lg list-none group-open:text-primary">
+                Can I volunteer or participate as a team?
+            </summary>
+            <p class="mt-2 text-base-content/70">
+                Yes! Many youth events encourage volunteering and team participation. Details are available on each event’s page.
+            </p>
+        </details>
 
-        <!-- Table -->
-        <div class="overflow-x-auto">
-            <table class="table table-zebra w-full" id="contactSubmissionTable">
-                <thead>
-                    <tr>
-                        <th class="cursor-pointer" data-sort="fullname">Full Name</th>
-                        <th class="cursor-pointer" data-sort="email">Email</th>
-                        <th class="cursor-pointer" data-sort="phone">Phone</th>
-                        <th class="cursor-pointer" data-sort="content">Message Content</th>
-                    </tr>
-                </thead>
-                <tbody id="contactSubmissionTableBody">
-                </tbody>
-            </table>
-        </div>
+        <!-- FAQ 4 -->
+        <details class="group border border-gray-200 rounded-xl p-4 bg-base-100 shadow cursor-pointer">
+            <summary class="font-semibold text-lg list-none group-open:text-primary">
+                What is the age requirement for youth events?
+            </summary>
+            <p class="mt-2 text-base-content/70">
+                Most events are designed for participants aged 15–30, but some may have different age limits. Always check the event details.
+            </p>
+        </details>
 
-        <!-- Pagination -->
-        <div class="flex justify-center mt-4" id="contactSubmissionTablePagination"></div>
+        <!-- FAQ 5 -->
+        <details class="group border border-gray-200 rounded-xl p-4 bg-base-100 shadow cursor-pointer">
+            <summary class="font-semibold text-lg list-none group-open:text-primary">
+                How can I stay updated on upcoming youth events?
+            </summary>
+            <p class="mt-2 text-base-content/70">
+                You can subscribe to our newsletter or follow us on social media to get regular updates on all youth events.
+            </p>
+        </details>
 
     </div>
+  </div>
+</section>
 
-    <!-- Event List Section -->
-    <div class="p-4 space-y-4">
+<!-- Footer -->
+<footer class="bg-base-200 text-base-content/70 py-6 mt-12 border-t border-gray-300 text-center">
+    <p class="text-sm">
+        &copy; 2025 Event App. All rights reserved. | 
+        <a href="#" class="hover:text-primary">Privacy Policy</a>
+    </p>
+</footer>
 
-        <!-- Search -->
-        <div class="flex justify-between items-center">
-            <h3><strong>Events List</strong></h3>
-            <input id="eventListSearchBox" type="text" placeholder="Search Events..." class="input input-bordered w-full max-w-xs" />
-        </div>
+<script src="./js/site.js"></script>
 
-        <!-- Table -->
-        <div class="overflow-x-auto">
-            <table class="table table-zebra w-full" id="eventTable">
-                <thead>
-                    <tr>
-                        <th class="cursor-pointer" data-sort="fullname">Full Name</th>
-                        <th class="cursor-pointer" data-sort="email">Email</th>
-                        <th class="cursor-pointer" data-sort="phone">Phone</th>
-                        <th class="cursor-pointer" data-sort="content">Message Content</th>
-                    </tr>
-                </thead>
-                <tbody id="eventTableBody">
-                </tbody>
-            </table>
-        </div>
-
-        <!-- Pagination -->
-        <div class="flex justify-center mt-4" id="eventTablePagination"></div>
-
-    </div>
-
-    <!-- User Dialog -->
-    <dialog id="userModal" class="modal">
-        <div class="modal-box">
-            <h3 class="font-bold text-lg">User Login</h3>
-            <p>Please login to continue</p>
-            <form method="dialog" class="flex flex-col gap-2 mt-4">
-                <input type="text" name="userName" id="userName" placeholder="User Name" class="input input-bordered w-full" />
-                <input type="hidden" name="userId" id="userName" placeholder="User Id" class="input input-bordered w-full" />
-                <div class="modal-action">
-                    <button class="btn btn-primary" id="SignInSignUpBtn" onclick="userLogin();">Sign-In / Sign-Up</button>
-                    <button class="btn">Cancel</button>
-                </div>
-            </form>
-        </div>
-    </dialog>
-
-    <script src="/js/site.js"></script>
 </body>
 </html>

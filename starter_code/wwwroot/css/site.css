@@ -17,3 +17,6 @@ html {
 body {
     margin-bottom: 60px;
 }
+.lock_textarea {
+  resize: none;
+}

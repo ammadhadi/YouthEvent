@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" />
+  <link href="./css/site.css" rel="stylesheet"/>
+  <title>Event Page</title>
+</head>
+<body class="bg-base-200 py-10">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+      <!-- Feature Image -->
+      <div class="w-full rounded-xl overflow-hidden">
+        <!-- Feature Image with Carousel -->
+<div class="w-full h-80 md:h-96 rounded-xl overflow-hidden relative">
+  <div class="carousel w-full h-full">
+    <div id="slide1" class="carousel-item relative w-full h-full">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-xl"/>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide3" class="btn btn-circle btn-sm">❮</a> 
+        <a href="#slide2" class="btn btn-circle btn-sm">❯</a>
+      </div>
+    </div> 
+    <div id="slide2" class="carousel-item relative w-full h-full">
+      <img src="/mnt/data/image2.png" class="w-full h-full object-cover rounded-xl"/>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide1" class="btn btn-circle btn-sm">❮</a> 
+        <a href="#slide3" class="btn btn-circle btn-sm">❯</a>
+      </div>
+    </div> 
+    <div id="slide3" class="carousel-item relative w-full h-full">
+      <img src="/mnt/data/image3.png" class="w-full h-full object-cover rounded-xl"/>
+      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+        <a href="#slide2" class="btn btn-circle btn-sm">❮</a> 
+        <a href="#slide1" class="btn btn-circle btn-sm">❯</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+
+      <!-- Event Details -->
+      <div class="space-y-6">
+        <h1 class="text-9xl md:text-9xl font-extrabold">Sample Event Title</h1>
+
+        <div class="space-y-2">
+          <p><span class="font-bold">Category:</span> Music</p>
+          <p><span class="font-bold">Date:</span> 25 December 2025</p>
+          <p><span class="font-bold">Location:</span> Karachi, Pakistan</p>
+          <p><span class="font-bold">Organizer/Partners:</span> ABC Group</p>
+        </div>
+
+        <div>
+          <h2 class="text-9xl font-bold mb-2">Event Details</h2>
+          <p class="leading-relaxed">
+            This is a sample description of the event. You can add all details here about what's going to happen in the event, who can join, schedule, and more.
+        Care. Support. Thrive.
+The National Disability Insurance Scheme (NDIS) supports people with a permanent and significant disability, which hinders their ability to carry out day-to-day activities. At Life Care Services Australia, we provide most cordial NDIS support services and supported accommodation in Sydney, NSW and most other suburbs in Australia to the people living with a disability. Our support workers work together with you to restore your workability and support your recovery.The prime reason for our existence is supporting our clients to live their lives as independent as possible. We have implemented many strategies in order to deliver the best to the participants and help them get their individual health goals sooner than later.
+
+
+How Life Care Services Australia Supports NDIS Participants
+If you are an NDIS participant living with a physical, intellectual, developmental, or psychosocial disability, you may qualify for NDIS assistance. As a registered NDIS provider in Sydney, Life Care Services Australia is fully committed to connecting you with services that cater to your specific needs. Our services can be provided in our accommodation center, in your home, or within the community – wherever you find it most convenient. Our dedicated support workers and coordinators collaborate closely with you to design and deliver services that assist you in achieving your individual health goals, no matter how big or small they may be. We offer a wide range of diverse NDIS services available in your local area. To obtain information about the NDIS process, you can refer to the official NDIS website.
+
+Our Commitment to Empowerment and Inclusion
+We strive to create a transformative impact in the lives of individuals with disabilities by delivering holistic, person-centered support services that foster independence, inclusion, and boundless opportunities. As a trusted and innovative NDIS provider, we are dedicated to enhancing the well-being and quality of life for those we support.
+
+  
+        </p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Comments Section  -->
+    <div class="mt-12  p-6 rounded-xl grey">
+      <h2 class="text-2xl font-bold mb-4">Comments</h2>
+      <textarea class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..."></textarea>
+      <button class="btn btn-primary mt-3">Submit</button>
+    </div>
+
+  </div>
+  <script src="./js/site.js"></script>
+</body>
+</html>
