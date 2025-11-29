@@ -260,7 +260,6 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\scopedcss\bundle
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\scopedcss\projectbundle\starter_code.bundle.scp.css
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\a4nj05w3a6-kdwmzfowmh.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\tkzcupom5g-61n19gt1b8.gz
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\gwa8e3stld-kvh7jlr6l7.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\164legzlsr-2vmb2j3pfy.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\ou33mqsxcg-4v8eqarkd7.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\j5yccctjsi-356vix0kms.gz
@@ -286,5 +285,6 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\refint\starter_c
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\starter_code.pdb
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\starter_code.genruntimeconfig.cache
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\ref\starter_code.dll
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\5olfik8uyg-m59znffw5a.gz
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\pw2tb7ktu8-jedmzayw4z.gz
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\5olfik8uyg-zxb5tb8o8n.gz
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\pw2tb7ktu8-twci6t2ss8.gz
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\gwa8e3stld-o1ekplaesp.gz
