@@ -190,8 +190,12 @@ function userLoginToggle() {
         $(".loginMenuText").text(user.fullname + " | Logout");
         $(".loginSubMenu").children("li").removeClass("hidden");
     } else {
-        userModal.showModal();
-        $(".loginSubMenu").children("li").addClass("hidden");
+
+        if (userModal != null) {
+            userModal.showModal();
+            $(".loginSubMenu").children("li").addClass("hidden");
+        }
+        
     }
 }
 

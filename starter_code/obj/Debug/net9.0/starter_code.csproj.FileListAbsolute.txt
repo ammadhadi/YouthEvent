@@ -259,7 +259,6 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\scopedcss\Pages\
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\scopedcss\bundle\starter_code.styles.css
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\scopedcss\projectbundle\starter_code.bundle.scp.css
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\a4nj05w3a6-kdwmzfowmh.gz
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\5olfik8uyg-1df9uuwkjk.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\tkzcupom5g-61n19gt1b8.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\gwa8e3stld-kvh7jlr6l7.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\164legzlsr-2vmb2j3pfy.gz
@@ -274,7 +273,6 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\90yn1
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\kbp8brfvp6-dd6z7egasc.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\4diio8qmtj-5pze98is44.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\m1qe3fjtq6-mlv21k5csn.gz
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\pw2tb7ktu8-iv809e8y9a.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\n3tby1pbkw-p0rixeoyew.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\6tadt2n8lj-p0rixeoyew.gz
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\staticwebassets.build.json
@@ -288,3 +286,5 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\refint\starter_c
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\starter_code.pdb
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\starter_code.genruntimeconfig.cache
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\ref\starter_code.dll
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\5olfik8uyg-m59znffw5a.gz
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\obj\Debug\net9.0\compressed\pw2tb7ktu8-jedmzayw4z.gz

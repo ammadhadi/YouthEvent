@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,17 +18,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "events.html",
               "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
               "RelativeDocumentMoniker": "wwwroot\\events.html",
               "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
               "RelativeToolTip": "wwwroot\\events.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-11-29T13:32:37.128Z",
               "EditorCaption": ""
@@ -75,13 +75,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "index.html",
               "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
               "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
               "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-11-29T13:32:37.874Z",
               "EditorCaption": ""

@@ -1,5 +1,4 @@
 wwwroot\css\site.css
-wwwroot\events.html
 wwwroot\favicon.ico
 wwwroot\js\site.js
 wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
@@ -14,9 +13,9 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\events.html
 wwwroot\index.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\css\site.css
-C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\events.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\favicon.ico
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\js\site.js
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js
@@ -31,4 +30,5 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.js
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.min.js
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.min.map
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\LICENSE.txt
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\events.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\index.html
