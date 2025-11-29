@@ -1,88 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" />
-  <link href="./css/site.css" rel="stylesheet"/>
-  <title>Event Page</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" />
+    <link href="./css/site.css" rel="stylesheet" />
+    <title>Event Page</title>
 </head>
-<body class="bg-base-200 py-10">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+<body>
 
-      <!-- Feature Image -->
-      <div class="w-full rounded-xl overflow-hidden">
-        <!-- Feature Image with Carousel -->
-<div class="w-full h-80 md:h-96 rounded-xl overflow-hidden relative">
-  <div class="carousel w-full h-full">
-    <div id="slide1" class="carousel-item relative w-full h-full">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-xl"/>
-      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide3" class="btn btn-circle btn-sm">❮</a> 
-        <a href="#slide2" class="btn btn-circle btn-sm">❯</a>
-      </div>
-    </div> 
-    <div id="slide2" class="carousel-item relative w-full h-full">
-      <img src="/mnt/data/image2.png" class="w-full h-full object-cover rounded-xl"/>
-      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide1" class="btn btn-circle btn-sm">❮</a> 
-        <a href="#slide3" class="btn btn-circle btn-sm">❯</a>
-      </div>
-    </div> 
-    <div id="slide3" class="carousel-item relative w-full h-full">
-      <img src="/mnt/data/image3.png" class="w-full h-full object-cover rounded-xl"/>
-      <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-        <a href="#slide2" class="btn btn-circle btn-sm">❮</a> 
-        <a href="#slide1" class="btn btn-circle btn-sm">❯</a>
-      </div>
-    </div>
-  </div>
-</div>
+    <!-- Menu -->
+    <div class="navbar bg-base-100 shadow px-4">
+        <!-- LEFT SIDE -->
+        <div class="navbar-start">
+            <!-- HAMBURGER MENU -->
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost lg:hidden">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </label>
 
-      </div>
+                <!-- MOBILE MENU -->
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 loginSubMenu">
 
-      <!-- Event Details -->
-      <div class="space-y-6">
-        <h1 class="text-9xl md:text-9xl font-extrabold">Sample Event Title</h1>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a>Events</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a>Preferences</a></li>
 
-        <div class="space-y-2">
-          <p><span class="font-bold">Category:</span> Music</p>
-          <p><span class="font-bold">Date:</span> 25 December 2025</p>
-          <p><span class="font-bold">Location:</span> Karachi, Pakistan</p>
-          <p><span class="font-bold">Organizer/Partners:</span> ABC Group</p>
+                    <!-- MOBILE LOGIN DROPDOWN -->
+                    <li onclick="userLoginToggle()">
+                        <div class="dropdown dropdown-end w-full">
+                            <label tabindex="0" class="cursor-pointer flex items-center gap-1 px-2 py-2">
+                                <span class="loginMenuText">Login</span>
+                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </label>
+
+                            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
+                                <li><a onclick="userLoginToggle()">Events</a></li>
+                                <li><a onclick="userLogout()">Logout</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- BRAND -->
+            <a href="index.html" class="btn btn-ghost text-xl">Youth Event App</a>
         </div>
 
-        <div>
-          <h2 class="text-9xl font-bold mb-2">Event Details</h2>
-          <p class="leading-relaxed">
-            This is a sample description of the event. You can add all details here about what's going to happen in the event, who can join, schedule, and more.
-        Care. Support. Thrive.
-The National Disability Insurance Scheme (NDIS) supports people with a permanent and significant disability, which hinders their ability to carry out day-to-day activities. At Life Care Services Australia, we provide most cordial NDIS support services and supported accommodation in Sydney, NSW and most other suburbs in Australia to the people living with a disability. Our support workers work together with you to restore your workability and support your recovery.The prime reason for our existence is supporting our clients to live their lives as independent as possible. We have implemented many strategies in order to deliver the best to the participants and help them get their individual health goals sooner than later.
+        <!-- RIGHT SIDE (DESKTOP MENU) -->
+        <div class="navbar-end hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li><a href="index.html">Home</a></li>
+                <li><a>Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a>Preferences</a></li>
 
+                <!-- DESKTOP LOGIN MENU -->
+                <li class="relative" onclick="userLoginToggle()">
+                    <div class="dropdown dropdown-end">
+                        <label tabindex="0" class="cursor-pointer flex items-center gap-1 px-4">
+                            <span class="loginMenuText">Login</span>
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </label>
 
-How Life Care Services Australia Supports NDIS Participants
-If you are an NDIS participant living with a physical, intellectual, developmental, or psychosocial disability, you may qualify for NDIS assistance. As a registered NDIS provider in Sydney, Life Care Services Australia is fully committed to connecting you with services that cater to your specific needs. Our services can be provided in our accommodation center, in your home, or within the community – wherever you find it most convenient. Our dedicated support workers and coordinators collaborate closely with you to design and deliver services that assist you in achieving your individual health goals, no matter how big or small they may be. We offer a wide range of diverse NDIS services available in your local area. To obtain information about the NDIS process, you can refer to the official NDIS website.
+                        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
+                            <li><a onclick="userLoginToggle()">Events</a></li>
+                            <li><a onclick="contactSubmissionList()">Contact Submissions List</a></li>
+                            <li><a onclick="userLogout()">Logout</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 
-Our Commitment to Empowerment and Inclusion
-We strive to create a transformative impact in the lives of individuals with disabilities by delivering holistic, person-centered support services that foster independence, inclusion, and boundless opportunities. As a trusted and innovative NDIS provider, we are dedicated to enhancing the well-being and quality of life for those we support.
+    <div class="container mx-auto py-12">
 
-  
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+
+                <!-- Feature Image -->
+                <div class="w-full rounded-xl overflow-hidden">
+                    <!-- Feature Image with Carousel -->
+                    <div class="w-full h-80 md:h-96 rounded-xl overflow-hidden relative">
+                        <div class="carousel w-full h-full">
+                            <div id="slide1" class="carousel-item relative w-full h-full">
+                                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-xl" />
+                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide3" class="btn btn-circle btn-sm">❮</a>
+                                    <a href="#slide2" class="btn btn-circle btn-sm">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide2" class="carousel-item relative w-full h-full">
+                                <img src="/mnt/data/image2.png" class="w-full h-full object-cover rounded-xl" />
+                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide1" class="btn btn-circle btn-sm">❮</a>
+                                    <a href="#slide3" class="btn btn-circle btn-sm">❯</a>
+                                </div>
+                            </div>
+                            <div id="slide3" class="carousel-item relative w-full h-full">
+                                <img src="/mnt/data/image3.png" class="w-full h-full object-cover rounded-xl" />
+                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                                    <a href="#slide2" class="btn btn-circle btn-sm">❮</a>
+                                    <a href="#slide1" class="btn btn-circle btn-sm">❯</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Event Details -->
+                <div class="space-y-6">
+                    <h1 class="text-9xl md:text-9xl font-extrabold">Sample Event Title</h1>
+
+                    <div class="space-y-2">
+                        <p><span class="font-bold">Category:</span> Music</p>
+                        <p><span class="font-bold">Date:</span> 25 December 2025</p>
+                        <p><span class="font-bold">Location:</span> Karachi, Pakistan</p>
+                        <p><span class="font-bold">Organizer/Partners:</span> ABC Group</p>
+                    </div>
+
+                    <div>
+                        <h2 class="text-9xl font-bold mb-2">Event Details</h2>
+                        <p class="leading-relaxed">
+                            This is a sample description of the event. You can add all details here about what's going to happen in the event, who can join, schedule, and more.
+                            Care. Support. Thrive.
+                            The National Disability Insurance Scheme (NDIS) supports people with a permanent and significant disability, which hinders their ability to carry out day-to-day activities. At Life Care Services Australia, we provide most cordial NDIS support services and supported accommodation in Sydney, NSW and most other suburbs in Australia to the people living with a disability. Our support workers work together with you to restore your workability and support your recovery.The prime reason for our existence is supporting our clients to live their lives as independent as possible. We have implemented many strategies in order to deliver the best to the participants and help them get their individual health goals sooner than later.
+
+                            How Life Care Services Australia Supports NDIS Participants
+                            If you are an NDIS participant living with a physical, intellectual, developmental, or psychosocial disability, you may qualify for NDIS assistance. As a registered NDIS provider in Sydney, Life Care Services Australia is fully committed to connecting you with services that cater to your specific needs. Our services can be provided in our accommodation center, in your home, or within the community – wherever you find it most convenient. Our dedicated support workers and coordinators collaborate closely with you to design and deliver services that assist you in achieving your individual health goals, no matter how big or small they may be. We offer a wide range of diverse NDIS services available in your local area. To obtain information about the NDIS process, you can refer to the official NDIS website.
+
+                            Our Commitment to Empowerment and Inclusion
+                            We strive to create a transformative impact in the lives of individuals with disabilities by delivering holistic, person-centered support services that foster independence, inclusion, and boundless opportunities. As a trusted and innovative NDIS provider, we are dedicated to enhancing the well-being and quality of life for those we support.
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Comments Section  -->
+            <div class="mt-12  p-6 rounded-xl grey">
+                <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                <textarea class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..."></textarea>
+                <button class="btn btn-primary mt-3">Submit</button>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <section id="contact" class="container mx-auto px-4 py-12">
+
+        <!-- Heading inside section -->
+        <div class="text-center mb-10">
+            <h1 class="text-4xl font-bold mb-2">Contact Us</h1>
+            <p class="text-base-content/70">We’d love to hear from you! Reach out to us anytime.</p>
+        </div>
+
+        <!-- Form + Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+            <!-- Contact Form -->
+            <form class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+                <h3 class="text-2xl font-semibold mb-4">Send Us a Message</h3>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Name</span>
+                    </label>
+                    <input type="text" placeholder="Your Name" class="input input-bordered w-full" required />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Email</span>
+                    </label>
+                    <input type="email" placeholder="Your Email" class="input input-bordered w-full" required />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Message</span>
+                    </label>
+                    <textarea placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">Send Message</button>
+            </form>
+
+            <!-- Contact Info + Map -->
+            <div class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+                <h3 class="text-2xl font-semibold mb-4">Get in Touch</h3>
+                <p>
+                    <strong>Address:</strong>Nottingham Trent University – Clifton Campus
+                    Clifton Lane, Nottingham
+                    NG11 8NS
+                    United Kingdom
+                </p>
+                <p><strong>Email:</strong> Musababuflejai2080@gmail.com</p>
+                <p><strong>Phone:</strong> 07908718129</p>
+
+                <h4 class="text-xl font-semibold mt-6">Follow Us: </h4>
+                <div class="flex space-x-4 mt-2">
+                    <a href="https://www.facebook.com/@NottinghamTrentUniversity/" class="btn btn-outline btn-sm">Facebook</a>
+                    <a href="https://x.com/UniofNottingham" class="btn btn-outline btn-sm">Twitter</a>
+                    <a href="https://www.instagram.com/popular/nottingham-trent-university-clifton-campus/" class="btn btn-outline btn-sm">Instagram</a>
+                </div>
+
+                <!-- Google Map -->
+                <div class="w-full h-80">
+                    <iframe class="w-full h-full rounded-xl shadow"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2437.290747213508!2d-1.1902618842144753!3d52.911706179893084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4879c3c9b5cb0b2d%3A0xbd8d4bcee66216c0!2sNottingham%20Trent%20University%20Clifton%20Campus!5e0!3m2!1sen!2suk!4v1700000000000"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-base-200 text-base-content/70 py-6 mt-12 border-t border-gray-300 text-center">
+        <p class="text-sm">
+            &copy; 2025 Event App. All rights reserved. |
+            <a href="#" class="hover:text-primary">Privacy Policy</a>
         </p>
-        </div>
+    </footer>
 
-      </div>
-    </div>
-
-    <!-- Comments Section  -->
-    <div class="mt-12  p-6 rounded-xl grey">
-      <h2 class="text-2xl font-bold mb-4">Comments</h2>
-      <textarea class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..."></textarea>
-      <button class="btn btn-primary mt-3">Submit</button>
-    </div>
-
-  </div>
-  <script src="./js/site.js"></script>
+    <script src="./js/site.js"></script>
 </body>
 </html>
