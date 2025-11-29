@@ -1,19 +1,31 @@
 ﻿var userModal;
 var user = null;
 var baseURL = "./api";
-let allDataList = [];   // full dataset from API
+let allDataList = [];
 let filteredDataList = [];
 let page = 1;
 let pageSize = 5;
 let sortBy = "name";
 let sortDir = "asc";
+let allEventDataList = [];
+let filteredEventDataList = [];
+let allCommentDataList = [];
+let filteredCommentDataList = [];
+let allAuthorDataList = [];
+let filteredAuthorDataList = [];
 
 document.addEventListener('DOMContentLoaded', function () {
     
     userModal = document.getElementById("userModal");
 
     userLoginToggle();
-    loadAllContactSubmissions();
+
+    if (user != null) {
+        loadAllContactSubmissions();
+        loadAllEvents();
+        loadAllComments();
+        loadAllAuthors();
+    }
 
     $("#ContactSubmissionListSearchBox").on("input", function () {
         let q = $(this).val().toLowerCase();
@@ -26,8 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
         );
 
         page = 1;
-        renderTable();
-        renderPagination();
+        renderTable(filteredDataList, "contactSubmissionTableBody");
+        renderPagination(filteredDataList, "contactSubmissionTablePagination", "contactSubmissionTableBody");
     });
 
     $("#contactSubmissionTable thead th").on("click", function () {
@@ -50,8 +62,122 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         page = 1;
-        renderTable();
-        renderPagination();
+        renderTable(filteredDataList, "contactSubmissionTableBody");
+        renderPagination(filteredDataList, "contactSubmissionTablePagination", "contactSubmissionTableBody");
+    });
+
+    $("#eventListSearchBox").on("input", function () {
+        let q = $(this).val().toLowerCase();
+        
+        filteredEventDataList = allEventDataList.filter(ev =>
+            ev.category.toLowerCase().includes(q) ||
+            ev.title.toLowerCase().includes(q) ||
+            ev.description.toLowerCase().includes(q) ||
+            ev.location.toLowerCase().includes(q) ||
+            ev.eventDate.toLowerCase().includes(q)
+        );
+
+        page = 1;
+        renderTable(filteredEventDataList, "eventTableBody");
+        renderPagination(filteredEventDataList, "eventTablePagination", "eventTableBody");
+    });
+
+    $("#eventTable thead th").on("click", function () {
+        let col = $(this).data("sort");
+        if (!col) return;
+
+        if (sortBy === col) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+        } else {
+            sortBy = col;
+            sortDir = "asc";
+        }
+
+        filteredEventDataList.sort((a, b) => {
+            let x = a[col].toString().toLowerCase();
+            let y = b[col].toString().toLowerCase();
+
+            if (sortDir === "asc") return x > y ? 1 : -1;
+            return x < y ? 1 : -1;
+        });
+
+        page = 1;
+        renderTable(filteredEventDataList, "eventTableBody");
+        renderPagination(filteredEventDataList, "eventTablePagination", "eventTableBody");
+    });
+
+    $("#commentListSearchBox").on("input", function () {
+        let q = $(this).val().toLowerCase();
+
+        filteredCommentDataList = allCommentDataList.filter(ev =>
+            ev.author.toLowerCase().includes(q) ||
+            ev.content.toLowerCase().includes(q)
+        );
+
+        page = 1;
+        renderTable(filteredCommentDataList, "commentTableBody");
+        renderPagination(filteredCommentDataList, "commentTablePagination", "commentTableBody");
+    });
+
+    $("#commentTable thead th").on("click", function () {
+        let col = $(this).data("sort");
+        if (!col) return;
+
+        if (sortBy === col) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+        } else {
+            sortBy = col;
+            sortDir = "asc";
+        }
+
+        filteredCommentDataList.sort((a, b) => {
+            let x = a[col].toString().toLowerCase();
+            let y = b[col].toString().toLowerCase();
+
+            if (sortDir === "asc") return x > y ? 1 : -1;
+            return x < y ? 1 : -1;
+        });
+
+        page = 1;
+        renderTable(filteredCommentDataList, "commentTableBody");
+        renderPagination(filteredCommentDataList, "commentTablePagination", "commentTableBody");
+    });
+
+    $("#authorListSearchBox").on("input", function () {
+        let q = $(this).val().toLowerCase();
+
+        filteredAuthorDataList = allAuthorDataList.filter(ev =>
+            ev.fullname.toLowerCase().includes(q) ||
+            ev.email.toLowerCase().includes(q)
+        );
+
+        page = 1;
+        renderTable(filteredAuthorDataList, "authorTableBody");
+        renderPagination(filteredAuthorDataList, "authorTablePagination", "authorTableBody");
+    });
+
+    $("#authorTable thead th").on("click", function () {
+        let col = $(this).data("sort");
+        if (!col) return;
+
+        if (sortBy === col) {
+            sortDir = sortDir === "asc" ? "desc" : "asc";
+        } else {
+            sortBy = col;
+            sortDir = "asc";
+        }
+
+        filteredAuthorDataList.sort((a, b) => {
+            let x = a[col].toString().toLowerCase();
+            let y = b[col].toString().toLowerCase();
+
+            if (sortDir === "asc") return x > y ? 1 : -1;
+            return x < y ? 1 : -1;
+        });
+
+        page = 1;
+        renderTable(filteredAuthorDataList, "authorTableBody");
+        renderPagination(filteredAuthorDataList, "authorTablePagination", "authorTableBody");
     });
 
 });
@@ -329,84 +455,157 @@ function loadAllContactSubmissions() {
         success: function (res) {
             allDataList = res; 
             filteredDataList = res;
-            renderTable();
-            renderPagination();
+            renderTable(filteredDataList, "contactSubmissionTableBody");
+            renderPagination(filteredDataList, "contactSubmissionTablePagination", "contactSubmissionTableBody");
         },
-        error: function () {
+        error: function (err) {
             $("#contactSubmissionTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
         }
     });
 }
 
-function renderTable() {
+function renderTable(dataSet, tableBodyId) {
     let start = (page - 1) * pageSize;
-    let pageData = filteredDataList.slice(start, start + pageSize);
+    let pageData = dataSet.slice(start, start + pageSize);
     let rows = "";
 
     if (pageData.length == 0) {
         rows = '<tr><td colspan="3" class="text-center text-gray-500">No data found</td></tr>';
     } else {
-        pageData.forEach(ev => {
-            rows += '<tr><td>' + ev.fullname + '</td><td>' + ev.email + '</td><td>' + ev.phone + '</td><td>' + ev.content + '</td></tr>';
-        });
+
+        if (tableBodyId == "contactSubmissionTableBody") {
+            pageData.forEach(ev => {
+                rows += '<tr><td>' + ev.fullname + '</td><td>' + ev.email + '</td><td>' + ev.phone + '</td><td>' + ev.content + '</td></tr>';
+            })
+        }
+        else if (tableBodyId == "eventTableBody") {
+            pageData.forEach(ev => {
+                rows += '<tr><td>' + ev.category + '</td><td>' + ev.title + '</td><td>' + ev.description + '</td><td>' + ev.location + '</td><td>' + new Date(ev.eventDate).toDateString() + '</td></tr>';
+            });
+        }
+        else if (tableBodyId == "commentTableBody") {
+            pageData.forEach(ev => {
+                rows += '<tr><td>' + ev.author + '</td><td>' + ev.content + '</td></tr>';
+            });
+        }
+        else if (tableBodyId == "authorTableBody") {
+            pageData.forEach(ev => {
+                rows += '<tr><td>' + ev.fullname + '</td><td>' + ev.email + '</td><td><img src="' + ev.imageUrl + '" alt="' + ev.fullname + '" title="' + ev.fullname + '" /></td></tr>';
+            });
+        }
     }
 
-    $("#contactSubmissionTableBody").html(rows);
+    $("#" + tableBodyId).html(rows);
 }
 
-function renderPagination() {
-    let totalPages = Math.ceil(filteredDataList.length / pageSize);
+function renderPagination(dataSet, tablePaginationId, tableBodyId) {
+    let totalPages = Math.ceil(dataSet.length / pageSize);
     let html = '<div class="join">';
 
     for (let i = 1; i <= totalPages; i++) {
         let btnactiveClass = i == page ? "btn-active" : "";
-        html += '<button onclick="goToPage(' + i + ')" class="join-item btn ' + btnactiveClass +'"> ' + i + ' </button>';
+        html += '<button onclick="goToPage(' + i + ', \'' + tableBodyId + '\', \'' + tablePaginationId + '\')" class="join-item btn ' + btnactiveClass +'"> ' + i + ' </button>';
     }
 
     html += '</div>';
 
-    $("#contactSubmissionTablePagination").html(html);
+    $("#" + tablePaginationId).html(html);
 }
 
-function goToPage(p) {
+function goToPage(p, tableBodyId, tablePaginationId) {
     page = p;
-    renderTable();
-    renderPagination();
+    let dataSet = null;
+
+    if (tableBodyId == "contactSubmissionTableBody") {
+        dataSet = filteredDataList;
+    }
+    else if (tableBodyId == "eventTableBody") {
+        dataSet = filteredEventDataList;
+    }
+    else if (tableBodyId == "commentTableBody") {
+        dataSet = filteredCommentDataList;
+    }
+    else if (tableBodyId == "authorTableBody") {
+        dataSet = filteredAuthorDataList;
+    }
+
+    renderTable(dataSet, tableBodyId);
+    renderPagination(dataSet, tablePaginationId, tableBodyId);
 }
 
 function loadAllEvents() {
-    //$("#contactSubmissionTableBody").html('<tr> <td colspan="3" class="text-center"> <span class="loading loading-spinner loading-md"></span> </td> </tr>');
-
-    //let _category = "First Event Category";
-    //let _title = "First Event Category Title";
-    //let _description = "First Event Description";
-    //let _location = "First Event Location";
-    //let _searchKeyword = "Event";
-
-    let _category = " ";
-    let _title = " ";
-    let _description = " ";
-    let _location = " ";
-    let _searchKeyword = " ";
-    debugger
+    let _category = "";
+    let _title = "";
+    let _description = "";
+    let _location = "";
+    let _searchKeyword = "";
     let eventParams = "Category=" + _category + "&Title=" + _title + "&Description=" + _description + "&Location=" + _location + "&Search=" + _searchKeyword;
 
     $.ajax({
-        //url: baseURL + "/Events?Category=&Title=&Description=&Location=&Search=",
         url: baseURL + "/Events?" + eventParams,
         method: "GET",
         headers: {
             "Authorization": "Bearer " + user.token
         },
         success: function (res) {
-            debugger
-            console.log(res);
+            allEventDataList = res;
+            filteredEventDataList = res;
+            renderTable(filteredEventDataList, "eventTableBody");
+            renderPagination(filteredEventDataList, "eventTablePagination", "eventTableBody");
         },
         error: function (err) {
-            console.log(err);
-            //$("#contactSubmissionTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
+            $("#eventTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
         }
     });
+}
+
+function loadAllComments() {
+    let _withRelated = "";
+    let commentParams = "withRelated=" + _withRelated;
+
+    $.ajax({
+        url: baseURL + "/Comments?" + commentParams,
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + user.token
+        },
+        success: function (res) {
+            allCommentDataList = res;
+            filteredCommentDataList = res;
+            renderTable(filteredCommentDataList, "commentTableBody");
+            renderPagination(filteredCommentDataList, "commentTablePagination", "commentTableBody");
+        },
+        error: function (err) {
+            $("#commentTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
+        }
+    });
+}
+
+function loadAllAuthors() {
+    let _withRelated = "";
+    let authorParams = "withRelated=" + _withRelated;
+
+    $.ajax({
+        url: baseURL + "/Organizers?" + authorParams,
+        method: "GET",
+        headers: {
+            "Authorization": "Bearer " + user.token
+        },
+        success: function (res) {
+            allAuthorDataList = res;
+            filteredAuthorDataList = res;
+            renderTable(filteredAuthorDataList, "authorTableBody");
+            renderPagination(filteredAuthorDataList, "authorTablePagination", "authorTableBody");
+        },
+        error: function (err) {
+            $("#authorTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
+        }
+    });
+}
+
+function userLogout() {
+    localStorage.removeItem("userSession");
+    location.reload();
 }
 
 function sampleRequest(id, fullname) {

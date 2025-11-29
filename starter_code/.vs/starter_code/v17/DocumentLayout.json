@@ -1,18 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\",
+  "WorkspaceRootPath": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\users\\nbaig\\downloads\\starter_code\\starter_code\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\users\\nbaig\\downloads\\starter_code\\starter_code\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\users\\nbaig\\downloads\\starter_code\\starter_code\\middleware\\redirectrootmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:middleware\\redirectrootmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\users\\nbaig\\downloads\\starter_code\\starter_code\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\users\\nbaig\\downloads\\starter_code\\starter_code\\starter_code.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:starter_code.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 13,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,39 +78,67 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "wwwroot\\js\\site.js",
-              "ViewState": "AgIAAGQBAAAAAAAAAAAcwIsBAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-22T10:52:42.066Z"
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-27T08:28:32.151Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "index.html",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
-              "RelativeDocumentMoniker": "wwwroot\\index.html",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
-              "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAAIcAAAAAAAAAAAAwwLAAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-21T17:47:25.66Z"
+              "Title": "RedirectRootMiddleware.cs",
+              "DocumentMoniker": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\Middleware\\RedirectRootMiddleware.cs",
+              "RelativeDocumentMoniker": "Middleware\\RedirectRootMiddleware.cs",
+              "ToolTip": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\Middleware\\RedirectRootMiddleware.cs",
+              "RelativeToolTip": "Middleware\\RedirectRootMiddleware.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAAAewGoAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T12:38:31.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "starter_code.csproj",
+              "DocumentMoniker": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\starter_code.csproj",
+              "RelativeDocumentMoniker": "starter_code.csproj",
+              "ToolTip": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\starter_code.csproj",
+              "RelativeToolTip": "starter_code.csproj",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAC4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-11-27T06:01:54.214Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-21T10:59:10.135Z",
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "wwwroot\\js\\site.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-11-22T10:52:42.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\nbaig\\Downloads\\starter_code\\starter_code\\wwwroot\\index.html",
+              "RelativeToolTip": "wwwroot\\index.html",
+              "ViewState": "AgIAAFQAAAAAAAAAAAAwwMkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-21T17:47:25.66Z",
               "EditorCaption": ""
             }
           ]

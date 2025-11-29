@@ -43,7 +43,7 @@
 
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
                                 <li><a onclick="userLoginToggle()">Events</a></li>
-                                <li><a onclick="">Logout</a></li>
+                                <li><a onclick="userLogout()">Logout</a></li>
                             </ul>
                         </div>
                     </li>
@@ -75,7 +75,7 @@
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
                             <li><a onclick="userLoginToggle()">Events</a></li>
                             <li><a onclick="contactSubmissionList()">Contact Submissions List</a></li>
-                            <li><a onclick="">Logout</a></li>
+                            <li><a onclick="userLogout()">Logout</a></li>
                         </ul>
                     </div>
                 </li>
@@ -176,10 +176,11 @@
             <table class="table table-zebra w-full" id="eventTable">
                 <thead>
                     <tr>
-                        <th class="cursor-pointer" data-sort="fullname">Full Name</th>
-                        <th class="cursor-pointer" data-sort="email">Email</th>
-                        <th class="cursor-pointer" data-sort="phone">Phone</th>
-                        <th class="cursor-pointer" data-sort="content">Message Content</th>
+                        <th class="cursor-pointer" data-sort="category">Category</th>
+                        <th class="cursor-pointer" data-sort="title">Title</th>
+                        <th class="cursor-pointer" data-sort="description">Description</th>
+                        <th class="cursor-pointer" data-sort="location">Location</th>
+                        <th class="cursor-pointer" data-sort="eventDate">Event Date</th>
                     </tr>
                 </thead>
                 <tbody id="eventTableBody">
@@ -189,6 +190,63 @@
 
         <!-- Pagination -->
         <div class="flex justify-center mt-4" id="eventTablePagination"></div>
+
+    </div>
+
+    <!-- Authors List Section -->
+    <div class="p-4 space-y-4">
+
+        <!-- Search -->
+        <div class="flex justify-between items-center">
+            <h3><strong>Authors List</strong></h3>
+            <input id="authorListSearchBox" type="text" placeholder="Search Authors..." class="input input-bordered w-full max-w-xs" />
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full" id="authorTable">
+                <thead>
+                    <tr>
+                        <th class="cursor-pointer" data-sort="fullname">Full Name</th>
+                        <th class="cursor-pointer" data-sort="email">Email</th>
+                        <th class="cursor-pointer" data-sort="imageUrl">Photo</th>
+                    </tr>
+                </thead>
+                <tbody id="authorTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-4" id="authorTablePagination"></div>
+
+    </div>
+
+    <!-- Comments List Section -->
+    <div class="p-4 space-y-4">
+
+        <!-- Search -->
+        <div class="flex justify-between items-center">
+            <h3><strong>Comments List</strong></h3>
+            <input id="commentListSearchBox" type="text" placeholder="Search Comments..." class="input input-bordered w-full max-w-xs" />
+        </div>
+
+        <!-- Table -->
+        <div class="overflow-x-auto">
+            <table class="table table-zebra w-full" id="commentTable">
+                <thead>
+                    <tr>
+                        <th class="cursor-pointer" data-sort="author">Author</th>
+                        <th class="cursor-pointer" data-sort="content">Content</th>
+                    </tr>
+                </thead>
+                <tbody id="commentTableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex justify-center mt-4" id="commentTablePagination"></div>
 
     </div>
 
