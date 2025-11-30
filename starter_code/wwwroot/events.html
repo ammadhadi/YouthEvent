@@ -137,9 +137,11 @@
                 <h2 class="text-2xl font-bold mb-4">Comments</h2>
                 <div id="eventComments" class="mt-5"></div>
                 <p class="py-10"><span class="font-bold">Your Comments</span></p>
-                <input id="username" class="input input-bordered w-full mb-3" placeholder="Your name..." />
-                <textarea class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..."></textarea>
-                <button class="btn btn-primary mt-3">Submit</button>
+                <form id="eventCommentForm">
+                    <input id="eventUser" class="input input-bordered w-full mb-3" placeholder="Your name..." required />
+                    <textarea id="eventUserComment" class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..." required></textarea>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
             </div>
 
         </div>

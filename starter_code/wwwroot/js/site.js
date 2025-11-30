@@ -226,6 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
         EventSubmission();
     });
 
+    $('#eventCommentForm').submit(function (event) {
+        event.preventDefault();
+        commentSubmission();
+    }); 
+
     $("#themeChanger").on("change", function () {
         const selectedTheme = $(this).val();
         document.documentElement.setAttribute("data-theme", selectedTheme);
@@ -710,6 +715,7 @@ function eventDetail() {
             $("#eventLocation").text(event.location);
             $("#eventOrganizer").text(event.organizer?.fullname);
             $("#eventDescription").html(event.description);
+            $("#eventUser").val(user.fullname);
 
             if (event.comments != null && event.comments.length > 0) {
 
@@ -731,6 +737,49 @@ function eventDetail() {
         }
     }
     
+}
+
+function commentSubmission() {
+
+    const eventId = new URLSearchParams(window.location.search).get("eventId");
+    let authorFullName = $("#eventUser").val();
+    let authorContent = $("#eventUserComment").val();
+
+    if (eventId != null && eventId != "") {
+
+        let postData = JSON.stringify(
+            {
+                "id": null,
+                "eventId": eventId,
+                "author": authorFullName,
+                "content": authorContent
+            }
+        );
+
+        $.ajax({
+            url: baseURL + "/Comments/" + eventId,
+            method: "POST",
+            headers: {
+                "Authorization": "Bearer " + user.token
+            },
+            contentType: "application/json",
+            data: postData,
+            success: function (res) {
+                alert("Thank you! Your comment has been submitted. You can view it after page refresh.");
+                $('#eventCommentForm')[0].reset();
+                return res;
+            },
+            error: function (xhr) {
+                console.log("API error:", xhr.status, xhr.responseText);
+                return "";
+            }
+        });
+
+    }
+    else {
+        alert("Following fields are mandatory to submit Comment form. \n - User Name \n - Content");
+    }
+
 }
 
 function loadGoogleFont(font) {
