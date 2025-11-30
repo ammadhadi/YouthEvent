@@ -1,18 +1,21 @@
 ﻿var userModal;
 var user = null;
 var baseURL = "./api";
-let allDataList = [];
-let filteredDataList = [];
 let page = 1;
 let pageSize = 5;
 let sortBy = "name";
 let sortDir = "asc";
+let allDataList = [];
+let filteredDataList = [];
 let allEventDataList = [];
 let filteredEventDataList = [];
 let allCommentDataList = [];
 let filteredCommentDataList = [];
 let allAuthorDataList = [];
 let filteredAuthorDataList = [];
+let uniqueCategories = [];
+let uniqueLocations = [];
+let uniqueOrganizers = [];
 let savedTheme = null;
 let savedBackgroundImage = null;
 let savedFont = null;
@@ -218,6 +221,11 @@ document.addEventListener('DOMContentLoaded', function () {
         ContactSubmission();
     });
 
+    $('#eventForm').submit(function (event) {
+        event.preventDefault();
+        EventSubmission();
+    });
+
     $("#themeChanger").on("change", function () {
         const selectedTheme = $(this).val();
         document.documentElement.setAttribute("data-theme", selectedTheme);
@@ -246,6 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 });
+
 function userLoginToggle() {
     
     user = JSON.parse(localStorage.getItem("userSession"));
@@ -335,6 +344,7 @@ function ContactSubmission() {
             data: postData,
             success: function (res) {
                 alert("Thank you! Your message has been sent. We will back to you soon.");
+                $('#contactForm')[0].reset();
                 return res;
             },
             error: function (xhr) {
@@ -352,170 +362,46 @@ function ContactSubmission() {
 
 function EventSubmission() {
 
-    let fullname = $("#contact_FullName").val();
-    let email = $("#contact_Email").val();
-    let content = $("#contact_Content").val();
-    let phone = $("#contact_Phone").val();
-
     let postData = JSON.stringify(
         {
             "id": null,
-            "category": "Second Event Category",
-            "title": "Second Event Category Title",
-            "description": "Second Event Description",
-            "location": "Second Event Location",
-            "eventDate": new Date(),
-            "imageUrls": "https://etools.atlassian.net/s/a1kzh2/b/0/f2f2fcf95737f561da7e04397f09bd5d/_/jira-logo-scaled.png",
+            "category": $("#event_Category").val(),
+            "title": $("#event_Title").val(),
+            "description": $("#event_Description").val(),
+            "location": $("#event_Location").val(),
+            "eventDate": formatFullDate(new Date($("#event_Date").val())),
+            "imageUrls": $("#event_ImageUrl").val(),
             "organizer": {
-                "id": null,
-                "fullname": "Second Event Organizer",
-                "email": "second_event_organizer@email.com",
-                "imageUrl": "http://localhost/eNDIS/Images/eNDIS-logo.png",
+                "id": $("#event_Organizer option:selected").val(),
+                "fullname": $("#event_Organizer option:selected").attr("data-fullname"),
+                "email": $("#event_Organizer option:selected").attr("data-email"),
+                "imageUrl": $("#event_Organizer option:selected").attr("data-imageurl"),
             },
-            "comments": [
-                {
-                    "id": null,
-                    "eventId": 1,
-                    "author": "Second Event Author",
-                    "content": "Second Event Content"
-                }
-            ],
+            "comments": [],
             "images": [
-                "http://localhost/eNDIS/Images/eNDIS-logo.png",
-                "https://etools.atlassian.net/s/a1kzh2/b/0/f2f2fcf95737f561da7e04397f09bd5d/_/jira-logo-scaled.png"
+                $("#event_ImageUrl").val()
             ]
         }
     );
 
-    debugger;
-    //if ((fullname != null && fullname != "") && (email != null && email != "") && (content != null && content != "")) {
-
-        //let postData = JSON.stringify(
-        //    {
-        //        "id": null,
-        //        "category": "First Event Main Category",
-        //        "title": "First Event Main Category Title",
-        //        "description": "First Event Main Category Description",
-        //        "location": "First Event Main Category Location",
-        //        "eventDate": new Data(),
-        //        "organizerId": null,
-        //        "imageUrls": "http://localhost/eNDIS/Images/eNDIS-logo.png",
-        //        "organizer": {
-        //            "id": null,
-        //            "fullname": "First Event Organizer",
-        //            "email": "first_event_organizer@email.com",
-        //            "imageUrl": "http://localhost/eNDIS/Images/eNDIS-logo.png",
-        //            "events": [
-        //                {
-        //                    "id": null,
-        //                    "category": "First Event Category",
-        //                    "title": "First Event Category Title",
-        //                    "description": "First Event Category Description",
-        //                    "location": "First Event Category Location",
-        //                    "eventDate": new Data(),
-        //                    "organizerId": null,
-        //                    "imageUrls": "http://localhost/eNDIS/Images/eNDIS-logo.png",
-        //                    "organizer": {
-        //                        "id": null,
-        //                        "fullname": "",
-        //                        "email": "",
-        //                        "imageUrl": null,
-        //                        "events": [
-        //                            {
-        //                                "id": null,
-        //                                "category": "",
-        //                                "title": "",
-        //                                "description": "",
-        //                                "location": "",
-        //                                "eventDate": null,
-        //                                "organizerId": null,
-        //                                "imageUrls": null,
-        //                                "organizer": null,
-        //                                "comments": [
-        //                                    {
-        //                                        "id": null,
-        //                                        "eventId": 1,
-        //                                        "author": "",
-        //                                        "content": "",
-        //                                        "event": {
-        //                                            "id": null,
-        //                                            "category": "",
-        //                                            "title": "",
-        //                                            "description": "",
-        //                                            "location": "",
-        //                                            "eventDate": null,
-        //                                            "organizerId": null,
-        //                                            "imageUrls": null,
-        //                                            "organizer": {
-        //                                                "id": "[Max Depth Exceeded]",
-        //                                                "fullname": "[Max Depth Exceeded]",
-        //                                                "email": "[Max Depth Exceeded]",
-        //                                                "imageUrl": "[Max Depth Exceeded]",
-        //                                                "events": "[Max Depth Exceeded]"
-        //                                            },
-        //                                            "comments": null,
-        //                                            "...": "[Additional Properties Truncated]"
-        //                                        }
-        //                                    }
-        //                                ],
-        //                                "...": "[Additional Properties Truncated]"
-        //                            }
-        //                        ]
-        //                    },
-        //                    "comments": null,
-        //                    "images": null
-        //                }
-        //            ]
-        //        },
-        //        "comments": [
-        //            {
-        //                "id": null,
-        //                "eventId": 1,
-        //                "author": "First Event Author",
-        //                "content": "First Event Content",
-        //                "event": {
-        //                    "id": null,
-        //                    "category": "First Event Comment Category",
-        //                    "title": "First Event Title",
-        //                    "description": "First Event Description",
-        //                    "location": "First Event Location",
-        //                    "eventDate": new Data(),
-        //                    "organizerId": null,
-        //                    "imageUrls": "http://localhost/eNDIS/Images/eNDIS-logo.png",
-        //                    "organizer": "First Event Organizer",
-        //                    "comments": null,
-        //                    "images": [
-        //                        ""
-        //                    ]
-        //                }
-        //            }
-        //        ],
-        //        "images": null
-        //    }
-        //);
-
-        $.ajax({
-            url: baseURL + "/Events",
-            method: "POST",
-            headers: {
-                "Authorization": "Bearer " + user.token
-            },
-            contentType: "application/json",
-            data: postData,
-            success: function (res) {
-                alert("Your event have been submitted.");
-                return res;
-            },
-            error: function (xhr) {
-                console.log("API error:", xhr.status, xhr.responseText);
-                return "";
-            }
-        });
-
-    //}
-    //else {
-    //    alert("Following fields are mandatory to submit contact form. \n - Full Name \n - Email \n - Content");
-    //}
+    $.ajax({
+        url: baseURL + "/Events",
+        method: "POST",
+        headers: {
+            "Authorization": "Bearer " + user.token
+        },
+        contentType: "application/json",
+        data: postData,
+        success: function (res) {
+            alert("Your event have been submitted successfully.");
+            $('#eventForm')[0].reset();
+            return res;
+        },
+        error: function (xhr) {
+            console.log("API error:", xhr.status, xhr.responseText);
+            return "";
+        }
+    });
 
 }
 
@@ -535,7 +421,7 @@ function renderTable(dataSet, tableBodyId) {
         }
         else if (tableBodyId == "eventTableBody") {
             pageData.forEach(ev => {
-                rows += '<tr><td>' + ev.category + '</td><td>' + ev.title + '</td><td>' + ev.description + '</td><td>' + ev.location + '<img src="' + ev.imageUrls + '" alt="' + ev.title + '" title="' + ev.title + '" /> </td><td>' + new Date(ev.eventDate).toDateString() + '</td></tr>';
+                rows += '<tr><td>' + ev.category + '</td><td>' + ev.title + '</td><td>' + ev.description + '</td><td>' + ev.location + '</td><td>' + new Date(ev.eventDate).toDateString() + '</td></tr>';
             });
         }
         else if (tableBodyId == "commentTableBody") {
@@ -722,24 +608,84 @@ function eventShowcase() {
 
     let eventShowcaseHTML = "";
     let categoryWiseEvents = Object.groupBy(allEventDataList, item => item.category);
+    uniqueCategories = Object.keys(categoryWiseEvents);
+    let locationWiseEvents = Object.groupBy(allEventDataList, item => item.location);
+    uniqueLocations = Object.keys(locationWiseEvents);
+    let OrganizerWiseEvents = Object.groupBy(allEventDataList, item => item.organizerId ?? -1);
+
+    $.each(OrganizerWiseEvents, function (OrganizerWiseEvents, allEventDataList) {
+
+        let item = allEventDataList[Math.floor(Math.random() * allEventDataList.length)];
+
+        if (item != null && item.organizer != null) {
+            uniqueOrganizers.push(item.organizer);
+        }
+
+    });
+
+    if (uniqueCategories != null) {
+
+        $("#event_Category").append($("<option></option>").val("").text("Select an option").prop("disabled", true).prop("selected", true));
+
+        uniqueCategories.forEach(opt => {
+            if (opt != null) {
+                $("#event_Category").append(
+                    $("<option></option>").val(opt).text(opt)
+                );
+            }
+        });
+
+    }
+
+    if (uniqueLocations != null) {
+
+        $("#event_Location").append($("<option></option>").val("").text("Select an option").prop("disabled", true).prop("selected", true));
+
+        uniqueLocations.forEach(opt => {
+            if (opt != null) {
+                $("#event_Location").append(
+                    $("<option></option>").val(opt).text(opt)
+                );
+            }
+        });
+
+    }
+
+    if (uniqueOrganizers != null) {
+
+        $("#event_Organizer").append($("<option></option>").val("").text("Select an option").prop("disabled", true).prop("selected", true));
+
+        uniqueOrganizers.forEach(opt => {
+
+            if (opt != null) {
+                $("#event_Organizer").append(
+                    $("<option></option>").val(opt.id).text(opt.fullname).attr("data-fullname", opt.fullname).attr("data-email", opt.email).attr("data-imageUrl", opt.imageUrl)
+                );
+            }
+            
+        });
+
+    }
 
     if (categoryWiseEvents != null) {
 
         $.each(categoryWiseEvents, function (categoryWiseEvents, allEventDataList) {
 
             let item = allEventDataList[Math.floor(Math.random() * allEventDataList.length)];
-            
-            eventShowcaseHTML += '<div class="card bg-base-100 shadow border border-gray-200">'
-                + '<figure>'
-                + '<img src="' + item.imageUrls + '" alt="' + item.title + '" />'
-                + '</figure>'
-                + '<div class="card-body">'
-                + '<h3 class="card-title">' + item.category + '</h3>'
-                + '<p>' + item.description + '</p>'
-                + '<a href="events.html?eventId=' + item.id + '" class="btn btn-outline btn-primary mt-2">View Details</a>'
-                + '</div>'
-                + '</div>';
 
+            if (item != null) {
+                eventShowcaseHTML += '<div class="card bg-base-100 shadow border border-gray-200">'
+                    + '<figure>'
+                    + '<img src="' + item.imageUrls + '" alt="' + item.title + '" />'
+                    + '</figure>'
+                    + '<div class="card-body">'
+                    + '<h3 class="card-title">' + item.category + '</h3>'
+                    + '<p>' + item.description + '</p>'
+                    + '<a href="events.html?eventId=' + item.id + '" class="btn btn-outline btn-primary mt-2">View Details</a>'
+                    + '</div>'
+                    + '</div>';
+            }
+            
         });
 
     }
@@ -791,6 +737,22 @@ function loadGoogleFont(font) {
     const formatted = font.replace(/['"]/g, "").replace(/,.*$/, "");
     document.getElementById("fontLoader").href =
         `https://fonts.googleapis.com/css2?family=${formatted.replace(/ /g, '+')}:wght@300;400;500;600;700&display=swap`;
+}
+
+function formatFullDate(date) {
+    const pad = (n) => n.toString().padStart(2, "0");
+
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hour = pad(date.getHours());
+    const minute = pad(date.getMinutes());
+    const second = pad(date.getSeconds());
+
+    const ms = date.getMilliseconds().toString().padStart(3, "0");
+    const fraction7 = ms + "0000"; // convert 3 → 7 digits
+
+    return `${year}-${month}-${day}T${hour}:${minute}:${second}.${fraction7}`;
 }
 
 function sampleRequest(id, fullname) {
