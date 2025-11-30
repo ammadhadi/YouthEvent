@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="./css/site.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="fontLoader" rel="stylesheet">
     <title>Event Page</title>
 </head>
-<body>
+<body class="font-[var(--app-font)]">
 
     <!-- Menu -->
     <div class="navbar bg-base-100 shadow px-4">
@@ -27,9 +30,9 @@
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 loginSubMenu">
 
                     <li><a href="index.html">Home</a></li>
-                    <li><a>Events</a></li>
+                    <li><a href="#slider">Events</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a>Preferences</a></li>
+                    <li><a href="preferences.html">Preferences</a></li>
 
                     <!-- MOBILE LOGIN DROPDOWN -->
                     <li onclick="userLoginToggle()">
@@ -42,7 +45,11 @@
                             </label>
 
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                                <li><a onclick="userLoginToggle()">Events</a></li>
+                                <li><a class="py-15"></a></li>
+                                <li><a href="admin.html#eventList">Events</a></li>
+                                <li><a href="admin.html#contactList">Contacts</a></li>
+                                <li><a href="admin.html#authorList">Authors</a></li>
+                                <li><a href="admin.html#commentList">Comments</a></li>
                                 <li><a onclick="userLogout()">Logout</a></li>
                             </ul>
                         </div>
@@ -58,9 +65,9 @@
         <div class="navbar-end hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a href="index.html">Home</a></li>
-                <li><a>Events</a></li>
+                <li><a href="#slider">Events</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a>Preferences</a></li>
+                <li><a href="preferences.html">Preferences</a></li>
 
                 <!-- DESKTOP LOGIN MENU -->
                 <li class="relative" onclick="userLoginToggle()">
@@ -73,8 +80,11 @@
                         </label>
 
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                            <li><a onclick="userLoginToggle()">Events</a></li>
-                            <li><a onclick="contactSubmissionList()">Contact Submissions List</a></li>
+                            <li><a class="py-15"></a></li>
+                            <li><a href="admin.html#eventList">Events</a></li>
+                            <li><a href="admin.html#contactList">Contacts</a></li>
+                            <li><a href="admin.html#authorList">Authors</a></li>
+                            <li><a href="admin.html#commentList">Comments</a></li>
                             <li><a onclick="userLogout()">Logout</a></li>
                         </ul>
                     </div>
@@ -85,7 +95,7 @@
 
     <div class="container mx-auto py-12">
 
-        <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-12xl mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
 
                 <!-- Feature Image -->
@@ -94,25 +104,7 @@
                     <div class="w-full h-80 md:h-96 rounded-xl overflow-hidden relative">
                         <div class="carousel w-full h-full">
                             <div id="slide1" class="carousel-item relative w-full h-full">
-                                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-xl" />
-                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide3" class="btn btn-circle btn-sm">❮</a>
-                                    <a href="#slide2" class="btn btn-circle btn-sm">❯</a>
-                                </div>
-                            </div>
-                            <div id="slide2" class="carousel-item relative w-full h-full">
-                                <img src="/mnt/data/image2.png" class="w-full h-full object-cover rounded-xl" />
-                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide1" class="btn btn-circle btn-sm">❮</a>
-                                    <a href="#slide3" class="btn btn-circle btn-sm">❯</a>
-                                </div>
-                            </div>
-                            <div id="slide3" class="carousel-item relative w-full h-full">
-                                <img src="/mnt/data/image3.png" class="w-full h-full object-cover rounded-xl" />
-                                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                                    <a href="#slide2" class="btn btn-circle btn-sm">❮</a>
-                                    <a href="#slide1" class="btn btn-circle btn-sm">❯</a>
-                                </div>
+                                <img id="eventImage" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" class="w-full h-full object-cover rounded-xl" />
                             </div>
                         </div>
                     </div>
@@ -121,49 +113,40 @@
 
                 <!-- Event Details -->
                 <div class="space-y-6">
-                    <h1 class="text-9xl md:text-9xl font-extrabold">Sample Event Title</h1>
+                    <h1 id="eventTitle" class="text-6xl md:text-6xl font-extrabold py-12"></h1>
 
                     <div class="space-y-2">
-                        <p><span class="font-bold">Category:</span> Music</p>
-                        <p><span class="font-bold">Date:</span> 25 December 2025</p>
-                        <p><span class="font-bold">Location:</span> Karachi, Pakistan</p>
-                        <p><span class="font-bold">Organizer/Partners:</span> ABC Group</p>
+                        <p><span class="font-bold">Category:</span> <span id="eventCategory"></span></p>
+                        <p><span class="font-bold">Date:</span> <span id="eventDate"></span></p>
+                        <p><span class="font-bold">Location:</span> <span id="eventLocation"></span></p>
+                        <p><span class="font-bold">Organizer:</span> <span id="eventOrganizer"></span></p>
                     </div>
-
-                    <div>
-                        <h2 class="text-9xl font-bold mb-2">Event Details</h2>
-                        <p class="leading-relaxed">
-                            This is a sample description of the event. You can add all details here about what's going to happen in the event, who can join, schedule, and more.
-                            Care. Support. Thrive.
-                            The National Disability Insurance Scheme (NDIS) supports people with a permanent and significant disability, which hinders their ability to carry out day-to-day activities. At Life Care Services Australia, we provide most cordial NDIS support services and supported accommodation in Sydney, NSW and most other suburbs in Australia to the people living with a disability. Our support workers work together with you to restore your workability and support your recovery.The prime reason for our existence is supporting our clients to live their lives as independent as possible. We have implemented many strategies in order to deliver the best to the participants and help them get their individual health goals sooner than later.
-
-                            How Life Care Services Australia Supports NDIS Participants
-                            If you are an NDIS participant living with a physical, intellectual, developmental, or psychosocial disability, you may qualify for NDIS assistance. As a registered NDIS provider in Sydney, Life Care Services Australia is fully committed to connecting you with services that cater to your specific needs. Our services can be provided in our accommodation center, in your home, or within the community – wherever you find it most convenient. Our dedicated support workers and coordinators collaborate closely with you to design and deliver services that assist you in achieving your individual health goals, no matter how big or small they may be. We offer a wide range of diverse NDIS services available in your local area. To obtain information about the NDIS process, you can refer to the official NDIS website.
-
-                            Our Commitment to Empowerment and Inclusion
-                            We strive to create a transformative impact in the lives of individuals with disabilities by delivering holistic, person-centered support services that foster independence, inclusion, and boundless opportunities. As a trusted and innovative NDIS provider, we are dedicated to enhancing the well-being and quality of life for those we support.
-
-                        </p>
-                    </div>
-
                 </div>
+
+            </div>
+
+            <div class="space-y-6 py-10">
+                <h2 class="text-4xl font-bold mb-2">Event Details</h2>
+                <p id="eventDescription" class="leading-relaxed">
+                    
+                </p>
             </div>
 
             <!-- Comments Section  -->
-            <div class="mt-12  p-6 rounded-xl grey">
+            <div class="mt-12 rounded-xl grey">
                 <h2 class="text-2xl font-bold mb-4">Comments</h2>
+                <div id="eventComments" class="mt-5"></div>
+                <p class="py-10"><span class="font-bold">Your Comments</span></p>
                 <input id="username" class="input input-bordered w-full mb-3" placeholder="Your name..." />
                 <textarea class="textarea textarea-bordered w-full lock_textarea" rows="4" placeholder="Write a comment..."></textarea>
                 <button class="btn btn-primary mt-3">Submit</button>
-
-                <div id="commentsList" class="mt-5"></div>
             </div>
 
         </div>
 
     </div>
-    
-    <section id="contact" class="container mx-auto px-4 py-12">
+
+    <section id="contact" class="container mx-auto px-4 py-4">
 
         <!-- Heading inside section -->
         <div class="text-center mb-10">
@@ -175,28 +158,35 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             <!-- Contact Form -->
-            <form class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+            <form id="contactForm" class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
                 <h3 class="text-2xl font-semibold mb-4">Send Us a Message</h3>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Name</span>
                     </label>
-                    <input type="text" placeholder="Your Name" class="input input-bordered w-full" required />
+                    <input id="contact_FullName" type="text" placeholder="Your Name" class="input input-bordered w-full" required />
                 </div>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="Your Email" class="input input-bordered w-full" required />
+                    <input id="contact_Email" type="email" placeholder="Your Email" class="input input-bordered w-full" required />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Phone</span>
+                    </label>
+                    <input id="contact_Phone" type="text" placeholder="Your Phone" class="input input-bordered w-full" />
                 </div>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Message</span>
                     </label>
-                    <textarea placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
+                    <textarea id="contact_Content" placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-full">Send Message</button>
@@ -242,6 +232,22 @@
             <a href="#" class="hover:text-primary">Privacy Policy</a>
         </p>
     </footer>
+    
+    <!-- User Dialog -->
+    <dialog id="userModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">User Login</h3>
+            <p>Please login to continue</p>
+            <form method="dialog" class="flex flex-col gap-2 mt-4">
+                <input type="text" name="userName" id="userName" placeholder="User Name" class="input input-bordered w-full" />
+                <input type="hidden" name="userId" id="userName" placeholder="User Id" class="input input-bordered w-full" />
+                <div class="modal-action">
+                    <button class="btn btn-primary" id="SignInSignUpBtn" onclick="userLogin();">Sign-In / Sign-Up</button>
+                    <button class="btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
 
     <script src="./js/site.js"></script>
 </body>

@@ -13,10 +13,34 @@ let allCommentDataList = [];
 let filteredCommentDataList = [];
 let allAuthorDataList = [];
 let filteredAuthorDataList = [];
+let savedTheme = null;
+let savedBackgroundImage = null;
+let savedFont = null;
 
 document.addEventListener('DOMContentLoaded', function () {
     
     userModal = document.getElementById("userModal");
+    savedTheme = localStorage.getItem("savedTheme");
+    savedBackgroundImage = localStorage.getItem("savedBackgroundImage");
+    const savedFont = localStorage.getItem("savedFont");
+    
+    if (savedTheme) {
+        document.documentElement.setAttribute("data-theme", savedTheme);
+        $("#themeChanger").val(savedTheme);
+    }
+
+    if (savedBackgroundImage) {
+        document.body.style.backgroundImage = `url('${savedBackgroundImage}')`;
+        document.body.style.backgroundSize = "cover";
+        document.body.style.backgroundPosition = "center";
+        $("#bgImage").val(savedBackgroundImage);
+    }
+
+    if (savedFont) {
+        document.documentElement.style.setProperty("--app-font", savedFont);
+        loadGoogleFont(savedFont);
+        $("#fontChanger").val(savedFont);
+    }
 
     userLoginToggle();
 
@@ -25,6 +49,15 @@ document.addEventListener('DOMContentLoaded', function () {
         loadAllEvents();
         loadAllComments();
         loadAllAuthors();
+        setTimeout(function () {
+            homePageSlider();
+        }, 2000);
+        setTimeout(function () {
+            eventShowcase();
+        }, 2000);
+        setTimeout(function () {
+            eventDetail();
+        }, 2000);
     }
 
     $("#ContactSubmissionListSearchBox").on("input", function () {
@@ -180,15 +213,53 @@ document.addEventListener('DOMContentLoaded', function () {
         renderPagination(filteredAuthorDataList, "authorTablePagination", "authorTableBody");
     });
 
+    $('#contactForm').submit(function (event) {
+        event.preventDefault();
+        ContactSubmission();
+    });
+
+    $("#themeChanger").on("change", function () {
+        const selectedTheme = $(this).val();
+        document.documentElement.setAttribute("data-theme", selectedTheme);
+        localStorage.setItem("savedTheme", selectedTheme);
+    });
+
+    $("#bgImage").on("change", function () {
+        const selectedBackgroundImage = $(this).val();
+
+        if (selectedBackgroundImage) {
+            document.body.style.backgroundImage = `url('${selectedBackgroundImage}')`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundPosition = "center";
+            localStorage.setItem("savedBackgroundImage", selectedBackgroundImage);
+        } else {
+            document.body.style.background = "";
+            localStorage.removeItem("savedBackgroundImage");
+        }
+    });
+
+    $("#fontChanger").on("change", function () {
+        const selectedFont = $(this).val();
+        document.documentElement.style.setProperty("--app-font", selectedFont);
+        loadGoogleFont(selectedFont);
+        localStorage.setItem("savedFont", selectedFont);
+    });
+
 });
 function userLoginToggle() {
     
     user = JSON.parse(localStorage.getItem("userSession"));
     
     if (user != null) {
-        userModal.close();
+
+        if (userModal != null) {
+            userModal.close();
+        }
+        
         $(".loginMenuText").text(user.fullname + " | Logout");
         $(".loginSubMenu").children("li").removeClass("hidden");
+        $("#contact_FullName").val(user.fullname);
+
     } else {
 
         if (userModal != null) {
@@ -204,7 +275,6 @@ function userLogin() {
     let id = $("#userId").val();
     let fullname = $("#userName").val();
 
-    debugger;
     if ((id == null || id == 0 || id == "") && (fullname != null && fullname != "")) {
 
         let postData = JSON.stringify(
@@ -246,7 +316,6 @@ function ContactSubmission() {
     let content = $("#contact_Content").val();
     let phone = $("#contact_Phone").val();
     
-    debugger;
     if ((fullname != null && fullname != "") && (email != null && email != "") && (content != null && content != "")) {
 
         let postData = JSON.stringify(
@@ -450,24 +519,6 @@ function EventSubmission() {
 
 }
 
-function loadAllContactSubmissions() {
-    $("#contactSubmissionTableBody").html('<tr> <td colspan="3" class="text-center"> <span class="loading loading-spinner loading-md"></span> </td> </tr>');
-
-    $.ajax({
-        url: baseURL + "/Messages",
-        method: "GET",
-        success: function (res) {
-            allDataList = res; 
-            filteredDataList = res;
-            renderTable(filteredDataList, "contactSubmissionTableBody");
-            renderPagination(filteredDataList, "contactSubmissionTablePagination", "contactSubmissionTableBody");
-        },
-        error: function (err) {
-            $("#contactSubmissionTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
-        }
-    });
-}
-
 function renderTable(dataSet, tableBodyId) {
     let start = (page - 1) * pageSize;
     let pageData = dataSet.slice(start, start + pageSize);
@@ -484,7 +535,7 @@ function renderTable(dataSet, tableBodyId) {
         }
         else if (tableBodyId == "eventTableBody") {
             pageData.forEach(ev => {
-                rows += '<tr><td>' + ev.category + '</td><td>' + ev.title + '</td><td>' + ev.description + '</td><td>' + ev.location + '</td><td>' + new Date(ev.eventDate).toDateString() + '</td></tr>';
+                rows += '<tr><td>' + ev.category + '</td><td>' + ev.title + '</td><td>' + ev.description + '</td><td>' + ev.location + '<img src="' + ev.imageUrls + '" alt="' + ev.title + '" title="' + ev.title + '" /> </td><td>' + new Date(ev.eventDate).toDateString() + '</td></tr>';
             });
         }
         else if (tableBodyId == "commentTableBody") {
@@ -563,6 +614,24 @@ function loadAllEvents() {
     });
 }
 
+function loadAllContactSubmissions() {
+    $("#contactSubmissionTableBody").html('<tr> <td colspan="3" class="text-center"> <span class="loading loading-spinner loading-md"></span> </td> </tr>');
+
+    $.ajax({
+        url: baseURL + "/Messages",
+        method: "GET",
+        success: function (res) {
+            allDataList = res;
+            filteredDataList = res;
+            renderTable(filteredDataList, "contactSubmissionTableBody");
+            renderPagination(filteredDataList, "contactSubmissionTablePagination", "contactSubmissionTableBody");
+        },
+        error: function (err) {
+            $("#contactSubmissionTableBody").html('<tr><td colspan="3" class="text-center text-red-600">Error loading data</td></tr>');
+        }
+    });
+}
+
 function loadAllComments() {
     let _withRelated = "";
     let commentParams = "withRelated=" + _withRelated;
@@ -612,8 +681,120 @@ function userLogout() {
     location.reload();
 }
 
+function homePageSlider() {
+
+    let sliderHtml = "";
+    let sliderCounter = 1;
+    let nextCounter = 1;
+    let previousCounter = 1;
+    allEventDataList.forEach(item => {
+
+        nextCounter = (sliderCounter + 1);
+        previousCounter = (previousCounter - 1);
+
+        if (nextCounter > allEventDataList.length) {
+            nextCounter = 1;
+        }
+
+        if (previousCounter <= 0) {
+            previousCounter = allEventDataList.length;
+        }
+
+        sliderHtml += '<div id="slide' + sliderCounter + '" class="carousel-item relative w-full">'
+            + '<a href="events.html?eventId=' + item.id + '" title="' + item.title + '">'
+            + '<img src="' + item.imageUrls + '" alt="' + item.title + '" title="' + item.title + '" class="w-full h-full object-cover" />'
+            + '</a>'
+            + '<div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">' +
+            '<a href="#slide' + previousCounter +'" class="btn btn-circle">❮</a>' +
+            '<a href="#slide' + nextCounter +'" class="btn btn-circle">❯</a>' +
+            '</div>' +
+            '</div >';
+
+        sliderCounter++;
+
+    });
+
+    $("#slider").html(sliderHtml);
+
+}
+
+function eventShowcase() {
+
+    let eventShowcaseHTML = "";
+    let categoryWiseEvents = Object.groupBy(allEventDataList, item => item.category);
+
+    if (categoryWiseEvents != null) {
+
+        $.each(categoryWiseEvents, function (categoryWiseEvents, allEventDataList) {
+
+            let item = allEventDataList[Math.floor(Math.random() * allEventDataList.length)];
+            
+            eventShowcaseHTML += '<div class="card bg-base-100 shadow border border-gray-200">'
+                + '<figure>'
+                + '<img src="' + item.imageUrls + '" alt="' + item.title + '" />'
+                + '</figure>'
+                + '<div class="card-body">'
+                + '<h3 class="card-title">' + item.category + '</h3>'
+                + '<p>' + item.description + '</p>'
+                + '<a href="events.html?eventId=' + item.id + '" class="btn btn-outline btn-primary mt-2">View Details</a>'
+                + '</div>'
+                + '</div>';
+
+        });
+
+    }
+
+    $("#eventShowcase").html(eventShowcaseHTML);
+
+}
+
+function eventDetail() {
+
+    const eventId = new URLSearchParams(window.location.search).get("eventId");
+
+    if (eventId != null) {
+        let eventArray = allEventDataList.filter(item => item.id == eventId);
+
+        if (eventArray != null && eventArray.length > 0) {
+            let event = eventArray[0];
+            $("#eventImage").attr("src", event.imageUrls);
+            $("#eventTitle").text(event.title);
+            $("#eventCategory").text(event.category);
+            $("#eventDate").text(new Date(event.eventDate).toDateString());
+            $("#eventLocation").text(event.location);
+            $("#eventOrganizer").text(event.organizer?.fullname);
+            $("#eventDescription").html(event.description);
+
+            if (event.comments != null && event.comments.length > 0) {
+
+                let eventCommentsHTML = "";
+
+                event.comments.forEach(item => {
+
+                    eventCommentsHTML += '<div class="p-4 border rounded-lg bg-white shadow-sm">'
+                        + '<div class="font-semibold text-gray-900">' + item.author + '</div>'
+                        + '<div class="text-gray-700 mt-1">'
+                        + item.content 
+                        + '</div>'
+                        + '</div>';
+                });
+
+                $("#eventComments").html(eventCommentsHTML);
+
+            }
+        }
+    }
+    
+}
+
+function loadGoogleFont(font) {
+    const formatted = font.replace(/['"]/g, "").replace(/,.*$/, "");
+    document.getElementById("fontLoader").href =
+        `https://fonts.googleapis.com/css2?family=${formatted.replace(/ /g, '+')}:wght@300;400;500;600;700&display=swap`;
+}
+
 function sampleRequest(id, fullname) {
-    debugger;
+    
     if ((id == null || id == 0 || id == "") && (fullname != null || fullname != 0 || fullname != "")) {
 
         $.ajax({
@@ -632,7 +813,6 @@ function sampleRequest(id, fullname) {
             ),
             success: function (res) {
                 console.log("Response:", res);
-                debugger;
                 localStorage.setItem("userSession", JSON.stringify(res));
                 user = res;
                 return res;

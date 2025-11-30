@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link href="./css/site.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link id="fontLoader" rel="stylesheet">
     <title>Event App</title>
 </head>
-<body>
+<body class="font-[var(--app-font)]">
 
     <!-- Menu -->
     <div class="navbar bg-base-100 shadow px-4">
@@ -27,9 +30,9 @@
                 <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 loginSubMenu">
 
                     <li><a>Home</a></li>
-                    <li><a>Events</a></li>
+                    <li><a href="#slider">Events</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a>Preferences</a></li>
+                    <li><a href="preferences.html">Preferences</a></li>
 
                     <!-- MOBILE LOGIN DROPDOWN -->
                     <li onclick="userLoginToggle()">
@@ -42,7 +45,11 @@
                             </label>
 
                             <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                                <li><a onclick="userLoginToggle()">Events</a></li>
+                                <li><a class="py-15"></a></li>
+                                <li><a href="admin.html#eventList">Events</a></li>
+                                <li><a href="admin.html#contactList">Contacts</a></li>
+                                <li><a href="admin.html#authorList">Authors</a></li>
+                                <li><a href="admin.html#commentList">Comments</a></li>
                                 <li><a onclick="userLogout()">Logout</a></li>
                             </ul>
                         </div>
@@ -58,9 +65,9 @@
         <div class="navbar-end hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
                 <li><a>Home</a></li>
-                <li><a>Events</a></li>
+                <li><a href="#slider">Events</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a>Preferences</a></li>
+                <li><a href="preferences.html">Preferences</a></li>
 
                 <!-- DESKTOP LOGIN MENU -->
                 <li class="relative" onclick="userLoginToggle()">
@@ -73,8 +80,11 @@
                         </label>
 
                         <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-40 z-50 loginSubMenu">
-                            <li><a onclick="userLoginToggle()">Events</a></li>
-                            <li><a onclick="contactSubmissionList()">Contact Submissions List</a></li>
+                            <li><a class="py-15"></a></li>
+                            <li><a href="admin.html#eventList">Events</a></li>
+                            <li><a href="admin.html#contactList">Contacts</a></li>
+                            <li><a href="admin.html#authorList">Authors</a></li>
+                            <li><a href="admin.html#commentList">Comments</a></li>
                             <li><a onclick="userLogout()">Logout</a></li>
                         </ul>
                     </div>
@@ -101,40 +111,7 @@
 
         <h2 class="text-4xl font-bold text-center mb-6">Youth Events</h2>
 
-        <div class="carousel rounded-xl h-[300px] md:h-[450px]">
-
-            <!-- Slide 1 -->
-            <div id="slide1" class="carousel-item relative w-full">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
-                     class="w-full h-full object-cover" />
-
-                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide3" class="btn btn-circle">❮</a>
-                    <a href="#slide2" class="btn btn-circle">❯</a>
-                </div>
-            </div>
-
-            <!-- Slide 2 -->
-            <div id="slide2" class="carousel-item relative w-full">
-                <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde7b"
-                     class="w-full h-full object-cover" />
-
-                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide1" class="btn btn-circle">❮</a>
-                    <a href="#slide3" class="btn btn-circle">❯</a>
-                </div>
-            </div>
-
-            <!-- Slide 3 -->
-            <div id="slide3" class="carousel-item relative w-full">
-                <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659"
-                     class="w-full h-full object-cover" />
-
-                <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                    <a href="#slide2" class="btn btn-circle">❮</a>
-                    <a href="#slide1" class="btn btn-circle">❯</a>
-                </div>
-            </div>
+        <div id="slider" class="carousel rounded-xl h-[300px] md:h-[450px] lg:h-[1024px]">
 
         </div>
     </div>
@@ -143,43 +120,8 @@
     <section class="container mx-auto px-4 py-12">
         <h2 class="text-4xl font-bold text-center mb-10">Featured Events</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="eventShowcase" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <!-- Event Card 1 -->
-            <div class="card bg-base-100 shadow border border-gray-200">
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde7b" alt="Concert" />
-                </figure>
-                <div class="card-body">
-                    <h3 class="card-title">Music Concert</h3>
-                    <p>Experience a night filled with live performances and great vibes.</p>
-                    <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
-                </div>
-            </div>
-
-            <!-- Event Card 2 -->
-            <div class="card bg-base-100 shadow border border-gray-200">
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Tech Conference" />
-                </figure>
-                <div class="card-body">
-                    <h3 class="card-title">Tech Conference</h3>
-                    <p>Join industry leaders to explore the future of innovation.</p>
-                    <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
-                </div>
-            </div>
-
-            <!-- Event Card 3 -->
-            <div class="card bg-base-100 shadow border border-gray-200">
-                <figure>
-                    <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659" alt="Art Exhibition" />
-                </figure>
-                <div class="card-body">
-                    <h3 class="card-title">Art Exhibition</h3>
-                    <p>Explore stunning artwork from talented creators.</p>
-                    <a href="#" class="btn btn-outline btn-primary mt-2">View Details</a>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -227,7 +169,7 @@
 
 
             <div class="stat">
-                <div class="stat-title text-lg">Participants</div>
+                <div class="stat-title text-lg">Members</div>
                 <div class="stat-value text-primary">155,200+</div>
                 <div class="stat-desc">Youth from all over Pakistan</div>
             </div>
@@ -445,28 +387,35 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
 
             <!-- Contact Form -->
-            <form class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
+            <form id="contactForm" class="bg-base-100 p-8 rounded-xl shadow-lg space-y-6">
                 <h3 class="text-2xl font-semibold mb-4">Send Us a Message</h3>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Name</span>
                     </label>
-                    <input type="text" placeholder="Your Name" class="input input-bordered w-full" required />
+                    <input id="contact_FullName" type="text" placeholder="Your Name" class="input input-bordered w-full" required />
                 </div>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Email</span>
                     </label>
-                    <input type="email" placeholder="Your Email" class="input input-bordered w-full" required />
+                    <input id="contact_Email" type="email" placeholder="Your Email" class="input input-bordered w-full" required />
+                </div>
+
+                <div>
+                    <label class="label">
+                        <span class="label-text">Phone</span>
+                    </label>
+                    <input id="contact_Phone" type="text" placeholder="Your Phone" class="input input-bordered w-full" />
                 </div>
 
                 <div>
                     <label class="label">
                         <span class="label-text">Message</span>
                     </label>
-                    <textarea placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
+                    <textarea id="contact_Content" placeholder="Your Message" class="textarea textarea-bordered w-full" rows="5" required></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-full">Send Message</button>
@@ -581,6 +530,22 @@
             <a href="#" class="hover:text-primary">Privacy Policy</a>
         </p>
     </footer>
+
+    <!-- User Dialog -->
+    <dialog id="userModal" class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">User Login</h3>
+            <p>Please login to continue</p>
+            <form method="dialog" class="flex flex-col gap-2 mt-4">
+                <input type="text" name="userName" id="userName" placeholder="User Name" class="input input-bordered w-full" />
+                <input type="hidden" name="userId" id="userName" placeholder="User Id" class="input input-bordered w-full" />
+                <div class="modal-action">
+                    <button class="btn btn-primary" id="SignInSignUpBtn" onclick="userLogin();">Sign-In / Sign-Up</button>
+                    <button class="btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </dialog>
 
     <script src="./js/site.js"></script>
 

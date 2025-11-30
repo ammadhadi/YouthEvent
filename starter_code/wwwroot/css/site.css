@@ -14,9 +14,15 @@ html {
     }
 }
 
+:root {
+    --app-font: 'Inter', sans-serif;
+}
+
 body {
     margin-bottom: 60px;
+    font-family: var(--app-font);
 }
+
 .lock_textarea {
   resize: none;
 }
