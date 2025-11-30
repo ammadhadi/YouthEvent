@@ -12,6 +12,7 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\admin.html
 wwwroot\events.html
 wwwroot\index.html
 wwwroot\js\site.js
@@ -29,6 +30,7 @@ C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.js
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.min.js
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\dist\jquery.min.map
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\lib\jquery\LICENSE.txt
+C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\admin.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\events.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\index.html
 C:\TFSDEV\ProjectsCode\YouthEvent\starter_code\wwwroot\js\site.js
