@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\events.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\admin.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\admin.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\preferences.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\preferences.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\preferences.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\preferences.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|c:\\tfsdev\\projectscode\\youthevent\\starter_code\\wwwroot\\admin.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{DBD380E1-2AE4-4EAB-9510-674B7F727281}|starter_code.csproj|solutionrelative:wwwroot\\admin.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,73 +26,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 12,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "site.css",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\css\\site.css",
-              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\css\\site.css",
-              "RelativeToolTip": "wwwroot\\css\\site.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-30T08:14:10.938Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "preferences.html",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\preferences.html",
-              "RelativeDocumentMoniker": "wwwroot\\preferences.html",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\preferences.html",
-              "RelativeToolTip": "wwwroot\\preferences.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHMAAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-30T07:21:38.263Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "admin.html",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\admin.html",
-              "RelativeDocumentMoniker": "wwwroot\\admin.html",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\admin.html",
-              "RelativeToolTip": "wwwroot\\admin.html",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAKMAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-29T16:54:37.133Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "site.js",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\js\\site.js",
-              "RelativeDocumentMoniker": "wwwroot\\js\\site.js",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\js\\site.js",
-              "RelativeToolTip": "wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAgCAAAAAAAAAAAowLkCAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-29T14:08:05.47Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "events.html",
-              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
-              "RelativeDocumentMoniker": "wwwroot\\events.html",
-              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
-              "RelativeToolTip": "wwwroot\\events.html",
-              "ViewState": "AgIAAG0AAAAAAAAAAAAAAIsAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-11-29T13:32:37.128Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -143,13 +70,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "preferences.html",
+              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\preferences.html",
+              "RelativeDocumentMoniker": "wwwroot\\preferences.html",
+              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\preferences.html",
+              "RelativeToolTip": "wwwroot\\preferences.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-30T07:21:38.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "admin.html",
+              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\admin.html",
+              "RelativeDocumentMoniker": "wwwroot\\admin.html",
+              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\admin.html",
+              "RelativeToolTip": "wwwroot\\admin.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-29T16:54:37.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "events.html",
+              "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
+              "RelativeDocumentMoniker": "wwwroot\\events.html",
+              "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\events.html",
+              "RelativeToolTip": "wwwroot\\events.html",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAEQAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-11-29T13:32:37.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "index.html",
               "DocumentMoniker": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
               "RelativeDocumentMoniker": "wwwroot\\index.html",
               "ToolTip": "C:\\TFSDEV\\ProjectsCode\\YouthEvent\\starter_code\\wwwroot\\index.html",
               "RelativeToolTip": "wwwroot\\index.html",
-              "ViewState": "AgIAADIAAAAAAAAAAAAAAFMAAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAAB8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-11-29T13:32:37.874Z",
               "EditorCaption": ""
