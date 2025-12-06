@@ -20,7 +20,7 @@
 name: Build and deploy ASP.Net Core app to an Azure Web App
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # set this to the name of your Azure Web App
+  AZURE_WEBAPP_NAME: starter_code    # set this to the name of your Azure Web App
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '5'                 # set this to the .NET Core version to use
 
@@ -55,11 +55,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nuget-
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
-  
-      - name: dotnet publish
-        run: dotnet publish ./YourProjectFolder/YourProject.csproj -c Release -o ${{env.DOTNET_ROOT}}/myapp
+      - name: Build with dotnet
+        working-directory: ./starter_code
+        run: dotnet build --configuration Release
+      
+      - name: Publish with dotnet
+        working-directory: ./starter_code
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/starter_code
+
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
